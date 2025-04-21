@@ -1,0 +1,976 @@
+
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>マイページ</title>
+     <script
+      src="https://kit.fontawesome.com/d0a601627a.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://yubinbango.github.io/yubinbango/yubinbango.js"
+      charset="UTF-8"
+    ></script>
+    <link
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      rel="stylesheet"
+    />
+  </head>
+  
+  <body>
+  <header>
+          <div id="loading">
+        <div class="loading-content">
+            <img src="https://i.ibb.co/Wv8X3LVh/1.png">
+          <h2>スタンプラリーの準備中です！！</h2>
+          <h2>loading・・・</h2>
+        </div>
+    </div>
+      <script>
+        window.addEventListener('load',function(){
+            const element = document.querySelector('#loading')
+            element.classList.add('loadEnd');
+        });
+    </script>
+    <style>
+        #loading{
+            transition: all 1s;
+            background-color: #ffffff;
+            position:fixed;
+            z-index: 999;
+            inset: 0;
+            display: grid;
+            place-items:center;            
+        }
+
+        #loading img{
+            width: 40%;
+            animation: slide 4s linear infinite;
+            position: relative;
+        }
+
+        .loading-content{
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(-100%);
+            }
+            100%{
+                transform: translateX(200%);
+            }
+        }
+
+        #loading h2 {
+            animation:fadeIn 5s linear infinite;
+            position:relative;
+            color:
+        }
+        
+        @keyframes fadeIn{
+            0% {opacity: 0}
+            50% {opacity : 1}
+            100% {opacity: 0}
+
+        }
+
+
+        .loadEnd{
+          opacity: 0;
+          visibility: hidden;
+          }
+    
+
+
+
+
+    </style>
+        
+  </header>
+  
+    <h1>
+        <img
+          src="https://i.ibb.co/Wv8X3LVh/1.png"
+          alt="IMG-5451"
+          width="100px"
+          height="100px"
+        />
+        クールシェア宝塚2025<br />
+        スタンプラリーカード
+      </h1>
+
+    <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+<script>
+  liff
+    .init({
+      liffId: "2007154146-Y5jGo0G3",
+    })
+    .then(async () => {
+      if (!liff.isLoggedIn()) {
+        liff.login();
+      } else {
+        try {
+          const profile = await liff.getProfile();
+          const userId = profile.userId;
+
+          // 各フォームにユーザーIDを追加
+          ["userForm1", "userForm2", "userForm3","userForm4","userForm5","userForm6"].forEach(
+            (formId) => {
+              const form = document.getElementById(formId);
+              if (form) {
+                const userIdField = document.createElement("input");
+                userIdField.type = "hidden";
+                userIdField.name = "userId";
+                userIdField.value = userId;
+                form.appendChild(userIdField);
+              }
+            }
+          );
+
+          // ボタンのテキストを変更
+          document.querySelector(".button1").textContent = "ユーザー登録";
+          document.querySelector(".button2").innerHTML = "スタンプラリー<br>カード";
+          document.querySelector(".button3").textContent = "スタンプ獲得";
+          document.querySelector(".button4").textContent = "終了証作成";
+          document.querySelector(".button5").textContent = "お問い合わせ";
+          document.querySelector(".button6").textContent = "背景画像を変更する";
+        } catch (err) {
+          console.log("プロフィール取得エラー: ", err);
+        }
+      }
+    })
+    .catch((err) => {
+      console.log("LIFF初期化エラー:", err);
+    });
+</script>
+
+    <script>
+function disableButton(form) {
+  const button = form.querySelector('button[type="submit"]');
+  button.disabled = true;
+  button.textContent = '送信中...';
+  return true; // フォームの送信を続ける
+}
+</script>
+
+     
+
+<div class="tabs">
+  <input
+    id="stamp"
+    type="radio"
+    name="tab_item"
+    checked
+    aria-label="スタンプ獲得"
+  />
+  <label class="tab_item" for="stamp"><i class="fa-solid fa-qrcode i-top"></i><br>スタンプ獲得</label>
+
+  <input id="mypage" type="radio" name="tab_item" aria-label="スタンプカード" />
+  <label class="tab_item" for="mypage"><i class="fa-solid fa-stamp i-top"></i><br>スタンプカード</label>
+
+  <input
+    id="registration"
+    type="radio"
+    name="tab_item"
+    aria-label="ユーザー登録"
+  />
+  <label class="tab_item blinking-link" for="registration"><i class="fa fa-user-plus i-top" aria-hidden="true"></i> <br>ユーザー登録</label>
+
+  <input id="certificate" type="radio" name="tab_item" aria-label="お問い合わせ" />
+  <label class="tab_item" for="certificate"><i class="fa-solid fa-question-circle i-top"></i><br>お問い合わせ</label>
+
+
+  
+  <div class="tab_content" id="stamp_content">
+    <div class="tab_content_description">
+      <p class="c-txtsp">
+       
+          <h2 class="title"><i class="fa fa-user-plus" aria-hidden="true"></i> 初めての方</h2>
+          <h3 class="user">
+            <button type="button"
+              <a href="#" class="user-link" onclick="selectRadio('registration'); return false;">ユーザー登録をしよう!!<br>ここをタップ!!</a></button>
+          </h3>
+
+        <script>
+        function selectRadio(id) {
+        const radio = document.getElementById(id);
+        if (radio) {
+        radio.checked = true;
+        }
+        }
+        </script>
+
+        <style>
+          .blinking-link{
+            color: red;
+            text-align: center;
+            animation: blinking 2s ease-in-out infinite alternate;
+          }
+
+          <style>
+          .user-link{
+            background-color: yellow; !important;
+            text-align: center;
+            
+          }
+
+          @keyframes blinking {
+            0% {
+              opacity: 0;
+            }
+
+            100% {
+              opacity: 1;
+            }
+          }
+            
+          </style>
+        
+          <h2 class="title"><i class="fa-solid fa-qrcode"></i> QRコードを読み取って<br><i class="fa-solid fa-stamp"></i> スタンプを獲得しよう！</h2>
+        
+        <h3><button id="scanQR" type="button">QRコードをスキャン <br />ここをタップ！！</button></h3>
+    <h3>
+      ※QRコードはスポットごとに違います!<br />※スポットごとに読み取ってください!
+    </h3>
+   
+    <p>スキャン結果: <span id="result"></span></p>
+      
+
+   <script>
+  
+
+        // ✅ QRコードスキャン処理
+        document.getElementById("scanQR").addEventListener("click", () => {
+          if (!liff.isInClient()) {
+            alert("LINEアプリ内で開いてください");
+            return;
+          }
+
+          liff.scanCodeV2().then((result) => {
+            const qrCodeData = result.value;
+            
+            document.getElementById("result").textContent = "QRコードの読み取りに成功しました";
+            
+
+            const params = new URLSearchParams(qrCodeData.split('?')[1]);
+            const spotId = params.get('spot') || params.get('spotId');
+
+            if (spotId) {
+              const form = document.getElementById("userForm3");
+              const spotIdField = document.createElement("input");
+              spotIdField.type = "hidden";
+              spotIdField.name = "spotId";
+              spotIdField.value = spotId;
+              form.appendChild(spotIdField);
+
+              document.getElementById("button3").click();
+              
+            } else {
+              alert("無効なQRコードです");
+            }
+
+           
+            
+          }).catch((err) => {
+            console.error("QRコードスキャンエラー:", err);
+          });
+        });
+
+       
+     
+</script>
+
+      
+
+
+    
+
+<form 
+id="userForm3"
+action="https://script.google.com/macros/s/AKfycbxNtgxb2UYavOKKllEkQWmSznk-okhQFj53z7FN_9cpAlcIosvNvtGzCWm_SXQCh-Ko/exec"
+method="post"
+>
+<button id="button3" class="button3" type="submit">ログインされていません</button>
+  <h4>QRコードを読み込むと自動で送信されます</h4>
+</form>
+
+        
+
+      
+          
+
+
+        
+      </p>
+    </div>
+  </div>
+  <script>
+    function changeRadio(id){
+      document.getElementById(id).checked = true;
+    }
+  </script>
+
+
+
+  
+  <div class="tab_content" id="mypage_content">
+    <div class="tab_content_description">
+      <p class="c-txtsp">
+       
+          <h2 class="title">スタンプラリーカード</h2>
+          <h3>現在の獲得スタンプ数を確認できます！</h3>
+          <form onsubmit="disableButton(this)"
+              id="userForm2"
+              action="https://script.google.com/macros/s/AKfycbxf8TBrQJF8fLGrpiVdsTuTf20k8arvtkKsc5ldn-OTG3OV6Ig4AuXr_tinw0zOGS6RTQ/exec"
+              method="post"
+              >
+           <!-- ユーザーIDは動的に追加されます -->
+           <button class="button2" type="submit">ログインされていません</button>
+          </form><br>
+
+
+        <h2 class="title">スタンプカード<br>背景画像を変更する</h2>
+      <h3>お好きな背景画像に変更できます！</h3>
+      
+       <form onsubmit="disableButton(this)"
+              id="userForm6"
+              action="https://script.google.com/macros/s/AKfycbw7q_NFEDMeyV-O0W7NnhKU5WHNhpKiLtEN1l-lreLX9UJsUBbh-3N9LS9yai_qG8JS4A/exec"
+              method="post"
+              >
+            <div class="radio-group">
+        <div class="radio-area">
+            <input type="radio" name="backImg" value="1">
+            <img class="backImg" src="./背景1.png" class="radio">
+        
+        </div>
+
+    </div>
+
+    <div class="radio-group">
+        <div class="radio-area">
+            <input type="radio" name="backImg" value="2">
+            <img class="backImg" src="./背景2.png" class="radio">
+        
+        </div>
+
+    </div>
+
+    <div class="radio-group">
+        <div class="radio-area">
+            <input type="radio" name="backImg" value="3">
+            <img class="backImg" src="./背景3.png" class="radio">
+        
+        </div>
+
+    </div>
+
+    <div class="radio-group">
+        <div class="radio-area">
+            <input type="radio" name="backImg" value="4">
+            <img class="backImg" src="./背景4.png" class="radio">
+        
+        </div>
+
+    </div>
+
+    <div class="radio-group">
+        <div class="radio-area">
+            <input type="radio" name="backImg" value="5">
+            <img class="backImg" src="./背景5.png" class="radio">
+        
+        </div>
+
+    </div>
+
+    <div class="radio-group">
+        <div class="radio-area">
+            <input type="radio" name="backImg" value="6">
+            <img class="backImg" src="./背景6.png" class="radio">
+        
+        </div>
+
+    </div>
+
+    <div class="radio-group">
+        <div class="radio-area">
+            <input type="radio" name="backImg" value="7">
+            <img class="backImg" src="./背景7.png" class="radio">
+        
+        </div>
+
+    </div>
+
+    <div class="radio-group">
+        <div class="radio-area">
+            <input type="radio" name="backImg" value="8">
+            <img class="backImg" src="./背景8.png" class="radio">
+        
+        </div>
+
+    </div>
+
+    <div class="radio-group">
+        <div class="radio-area">
+            <input type="radio" name="backImg" value="9">
+            <img class="backImg" src="./背景9.png" class="radio">
+        
+        </div>
+
+    </div>
+
+    <div class="radio-group">
+        <div class="radio-area">
+            <input type="radio" name="backImg" value="9">
+            <img class="backImg" src="./背景10.png" class="radio">
+        
+        </div>
+
+    </div>
+
+    <button class="button6" type="submit">ログインされていません</button>
+          </form>
+
+<style>
+    .radio{
+      transform: scale(2.0);
+      }
+    .backImg{
+        width: 50%;
+    }
+
+    .radio-group {
+    
+    column-gap: .5rem;
+    margin-bottom: 0.5rem;
+    padding: 1rem 0.5rem;
+    border: 1px solid #333;
+    background-color: #fff;
+}
+</style>
+
+      
+        <h2 class="title">終了証</h2>
+        <h3>イベント終了時ゲットしよう！！</h3>
+        
+      <form onsubmit="disableButton(this)"
+        id="userForm4"
+        action="https://script.google.com/macros/s/AKfycbwUlcCQ3DOFpv1U1x93tAv4yIWldbb0y0T3YxGZhEPf9bTuOvhkzTfJbP_AvakP6gUanw/exec"
+        method="post"
+        >
+      <!-- ユーザーIDは動的に追加されます -->
+      <button class="button4" type="submit">ログインされていません</button>
+      </form>
+        
+
+      </p>
+    </div>
+  </div>
+
+
+  
+  <div class="tab_content" id="registration_content">
+    <div class="tab_content_description">
+      <p class="c-txtsp">
+        <h2 class="title">ユーザー登録</h2>
+                        <form onsubmit="disableButton(this)"
+                              id="userForm1"
+                              action="https://script.google.com/macros/s/AKfycbwWxfAMFwDUfl47kj9WCcixK3_S8yRVaEeXfbRXsb-de_Oh5b2XPxMTqKz-0jIny4JpQg/exec"
+                              method="post"
+                              class="h-adr"
+                        
+                            >
+                        <span class="p-country-name" style="display: none">Japan</span>
+                        <h3 class="question">①イベントで使用する参加名(ニックネーム)を入力してください</h3>
+                        
+                        <input type="text" name="name" id="name" required />
+                        
+                        <h4>
+                          本名でなくて大丈夫です👌<br />
+                          お好きな名前でご参加ください！!
+                        </h4>
+                        
+                        <h3 class="question">②性別を教えてください</h3>
+                        <label><input type="radio" name="sex" value="men" required/>男性</label>
+                        <label><input type="radio" name="sex" value="women" />女性</label>
+                        <label><input type="radio" name="sex" value="other" />その他</label>
+                        
+                        <h3 class="question">③年齢を教えてください</h3>
+                        <label><input type="radio" name="age" value="0~19" required />〜19歳</label>
+                        <label><input type="radio" name="age" value="20~29" />20歳代</label>
+                        <label><input type="radio" name="age" value="30~39" />30歳代</label><br>
+                        <label><input type="radio" name="age" value="40~49" />40歳代</label>
+                        <label><input type="radio" name="age" value="50~59" />50歳代</label>
+                        <label><input type="radio" name="age" value="60~" />60歳〜</label>
+                        
+                        <h3 class="question">④職業を教えてください</h3>
+                        <label><input type="radio" name="occupation" value="1" required />小学生 </label>
+                        <label><input type="radio" name="occupation" value="2" />中学生 </label>
+                        <label><input type="radio" name="occupation" value="3" />高校生 </label>
+                        <label><input type="radio" name="occupation" value="4" />大学生 </label
+                        ><br />
+                        <label
+                          ><input type="radio" name="occupation" value="5" />経営者・役員
+                        </label>
+                        <label><input type="radio" name="occupation" value="6" />会社員 </label>
+                        <label><input type="radio" name="occupation" value="7" />公務員 </label><br>
+                        <label
+                          ><input
+                            type="radio"
+                            name="occupation"
+                            value="8"
+                          />自営業・フリーランス </label
+                        ><br />
+                        <label
+                          ><input type="radio" name="occupation" value="9" />契約社員・派遣社員
+                        </label>
+                        <label
+                          ><input
+                            type="radio"
+                            name="occupation"
+                            value="10"
+                          />パート・アルバイト </label
+                        ><br />
+                        <label
+                          ><input type="radio" name="occupation" value="11" />専業主婦(主夫)
+                        </label>
+                        <label
+                          ><input type="radio" name="occupation" value="12" />定年退職
+                        </label>
+
+                        <label><input type="radio" name="occupation" value="13" />その他</label
+                        ><br />
+                        <input type="hidden" name="sexList" id="sexList" />
+                        <input type="hidden" name="ageList" id="ageList" />
+                        <input type="hidden" name="occupationList" id="occupationList" />
+
+
+                           <h3 class="question">⑤スタンプカードの背景画像を選択してください！</h3>
+                          <h4>《マイページ》→ <br>画面上部メニュー《スタンプカード》<br>からいつでも変更できます！！</h4>
+                            <div class="radio-group">
+        <div class="radio-area">
+            <input type="radio" name="backImg" value="1" required>
+            <img class="backImg" src="./背景1.png" class="radio">
+        
+        </div>
+
+    </div>
+
+    <div class="radio-group">
+        <div class="radio-area">
+            <input type="radio" name="backImg" value="2">
+            <img class="backImg" src="./背景2.png" class="radio">
+        
+        </div>
+
+    </div>
+
+    <div class="radio-group">
+        <div class="radio-area">
+            <input type="radio" name="backImg" value="3">
+            <img class="backImg" src="./背景3.png" class="radio">
+        
+        </div>
+
+    </div>
+
+    <div class="radio-group">
+        <div class="radio-area">
+            <input type="radio" name="backImg" value="4">
+            <img class="backImg" src="./背景4.png" class="radio">
+        
+        </div>
+
+    </div>
+
+    <div class="radio-group">
+        <div class="radio-area">
+            <input type="radio" name="backImg" value="5">
+            <img class="backImg" src="./背景5.png" class="radio">
+        
+        </div>
+
+    </div>
+
+    <div class="radio-group">
+        <div class="radio-area">
+            <input type="radio" name="backImg" value="6">
+            <img class="backImg" src="./背景6.png" class="radio">
+        
+        </div>
+
+    </div>
+
+    <div class="radio-group">
+        <div class="radio-area">
+            <input type="radio" name="backImg" value="7">
+            <img class="backImg" src="./背景7.png" class="radio">
+        
+        </div>
+
+    </div>
+
+    <div class="radio-group">
+        <div class="radio-area">
+            <input type="radio" name="backImg" value="8">
+            <img class="backImg" src="./背景8.png" class="radio">
+        
+        </div>
+
+    </div>
+
+    <div class="radio-group">
+        <div class="radio-area">
+            <input type="radio" name="backImg" value="9">
+            <img class="backImg" src="./背景9.png" class="radio">
+        
+        </div>
+
+    </div>
+
+    <div class="radio-group">
+        <div class="radio-area">
+            <input type="radio" name="backImg" value="9">
+            <img class="backImg" src="./背景10.png" class="radio">
+        
+        </div>
+
+    </div>
+                          
+                        <button class="button1" type="submit" value>ログインされていません</button> 
+                        </form>
+
+      </p>
+    </div>
+  </div>
+
+
+
+  
+  <div class="tab_content" id="certificate_content">
+    <div class="tab_content_description">
+      <p class="c-txtsp">
+      
+        
+        
+        <h3>お問い合わせ内容をリストから選んでください</h3>  
+
+        <form onsubmit="disableButton(this)"
+                              id="userForm5"
+                              action="https://script.google.com/macros/s/AKfycbx4XEA_DWstf1j0tXt3o5_UnaShFiHAV_fT6TTcHVm5ZHpF3xxz77_JFy1skRfL0hzOMg/exec"
+                              method="post"
+                            >
+        
+        <select name="inquiryNo">
+            <optgroup label=""></optgroup>
+            <option value=""></option>           
+            <optgroup label="全体">
+                <option value="1">遊び方がわからない</option>
+            </optgroup>
+            <optgroup label="LINE友達追加">
+                <option value="2">LINEで友達の追加方法がわからない</option>
+            </optgroup>
+            <optgroup label="ユーザー登録">
+                <option value="3">ユーザー登録方法がわからない</option>              
+                <option value="4">LINEで「認証」画面が出た</option>
+                <option value="5">「ログインされていません」</option>  
+                <option value="6">個人情報の取り扱いについて教えてほしい</option>
+                <option value="7">参加名は何に使うのか</option>
+
+            </optgroup>
+            <optgroup label="スポットQRコードの読み取り">
+                <option value="8">QRコードの読み取り方法がわからない</option>
+                <option value="9">「端末のカメラを起動できません」とメッセージが出た</option>
+                <option value="10">「LINEアプリ内で開いてください」とメッセージが出た</option>
+                <option value="11">「無効なQRコードです」とメッセージが出た</option>
+            </optgroup>
+
+            <optgroup label="スポットIDのコピー">
+              <option value="12">スポットIDのコピー方法がわからない</option>
+              <option value="13">スポットIDの貼り付け先がわからない</option>
+              <option value="14">スポットIDの貼り付け方がわからない</option>
+            </optgroup>
+
+            <optgroup label="スタンプ獲得フォーム">
+                <option value="15">「×スポットIDが異なります。フォームで入力し直してください！」とメッセージが出た</option>
+                <option value="16">「×登録されていません。ユーザー登録をしてください！」とメッセージが出た</option>
+                <option value="17">「×本日、このスポットのスタンプは既に獲得済みです。明日以降獲得できます！」とメッセージが出た</option>
+            </optgroup>
+
+            <optgroup label="スタンプカード">
+              <option value="18">「ユーザーが登録されていません」とメッセージが出た</option>
+              <option value="19">景品の当選はいつ？</option>
+              <option value="20">景品は何回応募できる？</option>                
+          </optgroup>
+
+            
+            <optgroup label="景品の応募">
+                <option value="21">景品はどのようなものがある？</option>
+                <option value="22">景品の当選はいつ？</option>
+                <option value="23">景品は何回応募できる？</option>                
+            </optgroup>
+
+            <optgroup label="限定画像">
+              <option value="24">限定画像はスタンプ何個でプレゼント？</option>
+              <option value="25">限定画像の保存方法</option>
+          </optgroup>
+
+        </select>
+        <!-- ユーザーIDは動的に追加されます -->
+      <button class="button5" type="submit">ログインされていません</button>
+        </form>
+  <h2 title>お問い合わせ</h2>
+        <h3>※お急ぎの場合、公式LINEアカウントにお問合せください</h3>
+        <a href="https://lin.ee/S9iTJ3D"><img src="https://ibb.org.ru/images/2025/04/14/LINE.png" alt="LINE問い合わせ" border="0" class="lineImage"></a>
+                    
+                      
+
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .i-top{
+    font-size: 200%;
+  }
+  
+  .title {
+    border-bottom-style: double;
+    border-color: blue;
+    display: inline-block;
+    text-align: center;
+  }
+  .tabs {
+    margin-top: 5px;
+    padding-bottom: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .tab_item {
+    width: calc(100% / 4);
+    height: 100px;
+    border-bottom: 3px solid #66b2ff;
+    background-color: #d9d9d9;
+    line-height: 50px;
+    font-size: 16px;
+    text-align: center;
+    color: #565656;
+    display: block;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    font-size: 80%;
+    transition: all 0.2s ease;
+  }
+  .tab_item:hover {
+    opacity: 0.75;
+  }
+
+  /*ラジオボタンを全て消す*/
+  input[name="tab_item"] {
+    display: none;
+  }
+
+  /*タブ切り替えの中身のスタイル*/
+  .tab_content {
+    display: none;
+    padding: 5px 20px 0;
+    clear: both;
+    overflow: hidden;
+  }
+
+  /*選択されているタブのコンテンツのみを表示*/
+  #registration:checked ~ #registration_content,
+  #mypage:checked ~ #mypage_content,
+  #certificate:checked ~ #certificate_content,
+  #stamp:checked ~ #stamp_content {
+    display: block;
+  }
+
+  /*選択されているタブのスタイルを変える*/
+  .tabs input:checked + .tab_item {
+    background-color: #66b2ff;
+    color: #fff;
+  }
+
+
+    
+  
+</style>
+
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      
+
+
+
+
+
+ 
+ <nav>
+    <ul class="menu">
+      <li>
+        <a href="https://chikarauemori.github.io/test57/" target="_self"
+          ><i class="fa-solid fa-house"></i><br /><span class="iconname"
+            >ホーム</span
+          ></a
+        >
+      </li>
+      <li>
+        <a href="https://chikarauemori.github.io/test62/" target="_self"
+          ><i class="fa-solid fa-location-dot"></i><br /><span class="iconname"
+            >マップ</span
+          ></a
+        >
+      </li>
+      <li>
+        <a
+          href="
+        https://chikarauemori.github.io/test77/" target="_self"
+          ><i class="fa-regular fa-list-ol"></i><br /><span class="iconname"
+            >遊び方</span
+          ></a
+        >
+      </li>
+      <li>
+        <a href="https://liff.line.me/2007154146-Y5jGo0G3" target="_self"
+          ><i class="fa-solid fa-circle-user"></i><br /><span class="iconname"
+            >マイページ</span
+          ></a
+        >
+      </li>
+    </ul>
+  </nav>
+ 
+<style>
+      #mypage_content{
+      text-align: center;
+      }
+      .menu {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        background: white;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 0;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .menu li {
+        display: inline-block;
+        text-align: center;
+      }
+
+      .menu a {
+        text-decoration: none;
+        color: black;
+      }
+
+      .menu a i {
+        font-size: 24px;
+      }
+
+      .menu a span {
+        display: block;
+        font-size: 12px; /* テキストサイズ */
+        margin-top: 5px;
+      }
+
+      @media (max-width: 768px) {
+        .menu {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        .menu li {
+          padding: 5px;
+        }
+      }
+
+          h1 {
+        font-family: sans-serif;
+        display: flex;
+        align-items: center; /* 縦方向の中央揃え */
+        justify-content: center; /* 横方向の中央揃え */
+        text-align: center;
+        background: skyblue;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        font-size: 85%;
+      }
+
+      input {
+        font-size: 150%;
+        background: skyblue;
+        display: inline-block;
+      }
+
+      button {
+        font-size: 150%;
+        text-align: center;
+        display: inline-block;
+      }
+      .information{
+        border-style: dotted;
+        display: inline-block;
+      }
+
+      .attention {
+        width: 100%;
+        border-style: double;
+        border-color: red;
+        color :red;
+        font-family: sans-serif;
+            }
+      .qrUrl {
+        color: red;
+      }
+
+      select {
+        font-size: 100%;
+      }
+
+      .alert {
+        border-style: double;
+        border-color: red;
+        width: 100%;
+}
+
+     .qrbutton {
+       border-style: double;
+        border-color: red;
+        display: inline-block;
+     }
+  .lineImage{
+    width:50%;
+  }
+
+  .explain{
+    width:100%;
+  }
+
+      </style>
+  </body>
+</html>
