@@ -203,7 +203,7 @@ loopPercentage();
           // ボタンのテキストを変更
           document.querySelector(".button1").textContent = "ユーザー登録";
           document.querySelector(".button2").innerHTML = "スタンプラリー<br>カード";
-          document.querySelector(".button3").textContent = "※このボタンは";
+          document.querySelector(".button3").textContent = "※";
           document.querySelector(".button4").textContent = "終了証作成";
           document.querySelector(".button5").textContent = "お問い合わせ";
           document.querySelector(".button6").textContent = "背景画像を変更する";
@@ -226,7 +226,14 @@ function disableButton(form) {
 }
 </script>
 
-     
+
+<input
+    id="registration"
+    type="radio"
+    name="tab_item"
+    aria-label="ユーザー登録"
+  />
+  <label class="tab_item blinking-link" for="registration"><i class="fa fa-user-plus i-top" aria-hidden="true"></i> <br>ユーザー登録</label>
 
 <div class="tabs">
   <input
@@ -241,13 +248,7 @@ function disableButton(form) {
   <input id="mypage" type="radio" name="tab_item" aria-label="スタンプカード" />
   <label class="tab_item" for="mypage"><i class="fa-solid fa-stamp i-top"></i><br>スタンプカード</label>
 
-  <input
-    id="registration"
-    type="radio"
-    name="tab_item"
-    aria-label="ユーザー登録"
-  />
-  <label class="tab_item blinking-link" for="registration"><i class="fa fa-user-plus i-top" aria-hidden="true"></i> <br>ユーザー登録</label>
+  
 
   <input id="certificate" type="radio" name="tab_item" aria-label="お問い合わせ" />
   <label class="tab_item" for="certificate"><i class="fa-solid fa-question-circle i-top"></i><br>お問い合わせ</label>
@@ -258,7 +259,7 @@ function disableButton(form) {
     <div class="tab_content_description">
       <p class="c-txtsp">
        
-          <h2 class="title"><i class="fa fa-user-plus" aria-hidden="true"></i> ↑↑ 初めての方(ユーザー登録をしよう！！)</h2>
+          <h2 class="title"> ↑↑ <i class="fa fa-user-plus" aria-hidden="true"></i>初めての方<br>(ユーザー登録をしよう！！)</h2>
        
 
         <script>
