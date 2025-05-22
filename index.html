@@ -197,7 +197,7 @@
           // ボタンのテキストを変更
           document.querySelector(".button1").textContent = "ユーザー登録";
           document.querySelector(".button2").innerHTML = "スタンプラリー<br>カード";
-          document.querySelector(".button3").textContent = "スタンプ獲得";
+          document.querySelector(".button3").textContent = "※このボタンは";
           document.querySelector(".button4").textContent = "終了証作成";
           document.querySelector(".button5").textContent = "お問い合わせ";
           document.querySelector(".button6").textContent = "背景画像を変更する";
@@ -252,11 +252,8 @@ function disableButton(form) {
     <div class="tab_content_description">
       <p class="c-txtsp">
        
-          <h2 class="title"><i class="fa fa-user-plus" aria-hidden="true"></i> 初めての方</h2>
-          <h3 class="user">
-            <button type="button"
-              <a href="#" class="user-link" onclick="selectRadio('registration'); return false;">ユーザー登録をしよう!!<br>ここをタップ!!</a></button>
-          </h3>
+          <h2 class="title"><i class="fa fa-user-plus" aria-hidden="true"></i> ↑↑ 初めての方(ユーザー登録をしよう！！)</h2>
+       
 
         <script>
         function selectRadio(id) {
@@ -330,7 +327,7 @@ function disableButton(form) {
               spotIdField.value = spotId;
               form.appendChild(spotIdField);
 
-              document.getElementById("button3").click();
+              document.getElementById("userForm3").submit(); // ボタンを押さずに送信
               
             } else {
               alert("無効なQRコードです");
@@ -357,7 +354,7 @@ id="userForm3"
 action="https://script.google.com/macros/s/AKfycbymLF0QRKymWcgyH4jlRMaex2vc4rXZBgtZ7n74_CRmCI5ZAnT_S4YFH02-bACzIrVRVQ/exec"
 method="post"
 >
-<button id="button3" class="button3" type="submit">ログインされていません</button>
+<button id="button3" class="button3" type="submit" style="display: none;";>ログインされていません</button>
   <h4>QRコードを読み込むと自動で送信されます</h4>
 </form>
 
@@ -396,92 +393,92 @@ method="post"
           </form><br>
 
 
-        <h2 class="title">スタンプカード<br>背景画像を変更する</h2>
-      <h3>お好きな背景画像に変更できます！</h3>
-      
-       <form onsubmit="disableButton(this)"
-              id="userForm6"
-              action="https://script.google.com/macros/s/AKfycbw7-3umoirGSPcsBOO7G8fAmUZ-V2lv-kbwhvVFvBvGxde2s08LUDVhAzpBqjLTFM-u/exec"
-              method="post"
-              >
+       <h2 class="title">スタンプカード<br>背景画像を変更する</h2>
+<h3>お好きな背景画像に変更できます！</h3>
 
-          <div class="radio-group">
-        <div class="radio-area">
-            <input type="radio" name="backImg" value="1">
-            <h4>7月限定！！</h4>
-            <img class="backImg" src="./背景5.png" class="radio">
-        
-        </div>
-
-    </div>
-         
-           
-            <div class="radio-group">
-        <div class="radio-area">
-            <input type="radio" name="backImg" value="1">
-            <img class="backImg" src="./背景1.png" class="radio">
-        
-        </div>
-
-    </div>
+ <form onsubmit="disableButton(this)"
+        id="userForm6"
+        action="https://script.google.com/macros/s/AKfycbw7-3umoirGSPcsBOO7G8fAmUZ-V2lv-kbwhvVFvBvGxde2s08LUDVhAzpBqjLTFM-u/exec"
+        method="post"
+        >
 
     <div class="radio-group">
-        <div class="radio-area">
-            <input type="radio" name="backImg" value="2">
-            <img class="backImg" src="./背景2.png" class="radio">
-        
-        </div>
-
-    </div>
-
+  <div class="radio-area">
+      <input type="radio" name="backImg" value="1">
+      <h4>7月限定！！</h4>
+      <img class="backImg" src="./1-7-1.png" class="radio">
   
+  </div>
 
-    
+</div>
+   
+     
+      <div class="radio-group">
+  <div class="radio-area">
+      <input type="radio" name="backImg" value="3">
+      <img class="backImg" src="./3-0.png" class="radio">
+  
+  </div>
 
-    <div class="radio-group">
-        <div class="radio-area">
-            <input type="radio" name="backImg" value="6">
-            <img class="backImg" src="./背景6.png" class="radio">
-        
-        </div>
+</div>
 
-    </div>
+<div class="radio-group">
+  <div class="radio-area">
+      <input type="radio" name="backImg" value="4">
+      <img class="backImg" src="./4-0.png" class="radio">
+  
+  </div>
 
-    <div class="radio-group">
-        <div class="radio-area">
-            <input type="radio" name="backImg" value="7">
-            <img class="backImg" src="./背景7.png" class="radio">
-        
-        </div>
+</div>
 
-    </div>
 
-    <div class="radio-group">
-        <div class="radio-area">
-            <input type="radio" name="backImg" value="8">
-            <img class="backImg" src="./背景8.png" class="radio">
-        
-        </div>
 
-    </div>
 
-    <div class="radio-group">
-        <div class="radio-area">
-            <input type="radio" name="backImg" value="9">
-            <img class="backImg" src="./背景9.png" class="radio">
-        
-        </div>
 
-    </div>
+<div class="radio-group">
+  <div class="radio-area">
+      <input type="radio" name="backImg" value="5">
+      <img class="backImg" src="./5-0.png" class="radio">
+  
+  </div>
 
-    <div class="radio-group">
-        <div class="radio-area">
-            <input type="radio" name="backImg" value="9">
-            <img class="backImg" src="./背景10.png" class="radio">
-        
-        </div>
+</div>
 
-    </div>
+<div class="radio-group">
+  <div class="radio-area">
+      <input type="radio" name="backImg" value="6">
+      <img class="backImg" src="./6-0.png" class="radio">
+  
+  </div>
+
+</div>
+
+<div class="radio-group">
+  <div class="radio-area">
+      <input type="radio" name="backImg" value="7">
+      <img class="backImg" src="./7-0.png" class="radio">
+  
+  </div>
+
+</div>
+
+<div class="radio-group">
+  <div class="radio-area">
+      <input type="radio" name="backImg" value="8">
+      <img class="backImg" src="./8-0.png" class="radio">
+  
+  </div>
+
+</div>
+
+<div class="radio-group">
+  <div class="radio-area">
+      <input type="radio" name="backImg" value="9">
+      <img class="backImg" src="./9-0.png" class="radio">
+  
+  </div>
+
+</div>
 
     <button class="button6" type="submit">ログインされていません</button>
           </form>
@@ -603,83 +600,83 @@ method="post"
                            <h3 class="question">⑤スタンプカードの背景画像を選択してください！</h3>
                           <h4>《マイページ》→ <br>画面上部メニュー《スタンプカード》<br>からいつでも変更できます！！</h4>
 
-                           <div class="radio-group">
-        <div class="radio-area">
-            <input type="radio" name="backImg" value="1" required>
-          <h4>7月限定！！</h4>
-            <img class="backImg" src="./背景5.png" class="radio">
-        
-        </div>
+                               <div class="radio-group">
+  <div class="radio-area">
+      <input type="radio" name="backImg" value="1">
+      <h4>7月限定！！</h4>
+      <img class="backImg" src="./1-7-1.png" class="radio">
+  
+  </div>
 
-    </div>
-                          
-                          
-                          <div class="radio-group">
-        <div class="radio-area">
-            <input type="radio" name="backImg" value="1" required>
-            <img class="backImg" src="./背景1.png" class="radio">
-        
-        </div>
-
-    </div>
-
-    <div class="radio-group">
-        <div class="radio-area">
-            <input type="radio" name="backImg" value="2">
-            <img class="backImg" src="./背景2.png" class="radio">
-        
-        </div>
-
-    </div>
-
-    
-
+</div>
    
+     
+      <div class="radio-group">
+  <div class="radio-area">
+      <input type="radio" name="backImg" value="3">
+      <img class="backImg" src="./3-0.png" class="radio">
+  
+  </div>
 
-    <div class="radio-group">
-        <div class="radio-area">
-            <input type="radio" name="backImg" value="6">
-            <img class="backImg" src="./背景6.png" class="radio">
-        
-        </div>
+</div>
 
-    </div>
+<div class="radio-group">
+  <div class="radio-area">
+      <input type="radio" name="backImg" value="4">
+      <img class="backImg" src="./4-0.png" class="radio">
+  
+  </div>
 
-    <div class="radio-group">
-        <div class="radio-area">
-            <input type="radio" name="backImg" value="7">
-            <img class="backImg" src="./背景7.png" class="radio">
-        
-        </div>
+</div>
 
-    </div>
 
-    <div class="radio-group">
-        <div class="radio-area">
-            <input type="radio" name="backImg" value="8">
-            <img class="backImg" src="./背景8.png" class="radio">
-        
-        </div>
 
-    </div>
 
-    <div class="radio-group">
-        <div class="radio-area">
-            <input type="radio" name="backImg" value="9">
-            <img class="backImg" src="./背景9.png" class="radio">
-        
-        </div>
 
-    </div>
+<div class="radio-group">
+  <div class="radio-area">
+      <input type="radio" name="backImg" value="5">
+      <img class="backImg" src="./5-0.png" class="radio">
+  
+  </div>
 
-    <div class="radio-group">
-        <div class="radio-area">
-            <input type="radio" name="backImg" value="10">
-            <img class="backImg" src="./背景10.png" class="radio">
-        
-        </div>
+</div>
 
-    </div>
+<div class="radio-group">
+  <div class="radio-area">
+      <input type="radio" name="backImg" value="6">
+      <img class="backImg" src="./6-0.png" class="radio">
+  
+  </div>
+
+</div>
+
+<div class="radio-group">
+  <div class="radio-area">
+      <input type="radio" name="backImg" value="7">
+      <img class="backImg" src="./7-0.png" class="radio">
+  
+  </div>
+
+</div>
+
+<div class="radio-group">
+  <div class="radio-area">
+      <input type="radio" name="backImg" value="8">
+      <img class="backImg" src="./8-0.png" class="radio">
+  
+  </div>
+
+</div>
+
+<div class="radio-group">
+  <div class="radio-area">
+      <input type="radio" name="backImg" value="9">
+      <img class="backImg" src="./9-0.png" class="radio">
+  
+  </div>
+
+</div>
                           
                         <button class="button1" type="submit" value>ログインされていません</button> 
                         </form>
@@ -841,6 +838,8 @@ method="post"
     color: #fff;
   }
 
+ 
+  
 
     
   
