@@ -88,7 +88,7 @@
         }
 
 
-        .loadEnd{
+     .loadEnd{
           opacity: 0;
           visibility: hidden;
           }
@@ -116,7 +116,7 @@
   background-color: skyblue;
   height: 10px;
   width: 100%; /* wrapperの幅に合わせてフルに伸びる */
-  animation: loadingBar 20s linear infinite;
+  animation: loadingBar 20s linear;
   border-radius: 5px;
   margin-bottom: 10px;
 }
@@ -135,22 +135,28 @@
 </style>
 
 <script>
-  const percentSpan = document.querySelector('.percent');
-  let loopStart = Date.now();
-  const duration = 20000; // 10秒
+const percentSpan = document.querySelector('.percent');
+const loopStart = Date.now();
+const duration = 20000; // 20秒
 
-  function loopPercentage() {
-    const now = Date.now();
-    const elapsed = (now - loopStart) % duration;
-    const progress = elapsed / duration;
-    const percentage = Math.floor(progress * 100);
-    percentSpan.textContent = `${percentage}%`;
-    requestAnimationFrame(loopPercentage);
+function loopPercentage() {
+  const now = Date.now();
+  const elapsed = now - loopStart;
+
+  if (elapsed >= duration) {
+    percentSpan.textContent = `間も無くスタート！！`; // 最終表示
+    return; // ループ終了
   }
 
-  loopPercentage();
-</script>
+  const progress = elapsed / duration;
+  const percentage = Math.floor(progress * 100);
+  percentSpan.textContent = `${percentage}%`;
 
+  requestAnimationFrame(loopPercentage);
+}
+
+loopPercentage();
+</script>
 
         
   </header>
