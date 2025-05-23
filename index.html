@@ -173,49 +173,51 @@ loopPercentage();
       </h1>
 
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
-<script>
-  liff
-    .init({
-      liffId: "2007302862-3mj9r7W5",
-    })
-    .then(async () => {
-      if (!liff.isLoggedIn()) {
-        liff.login();
-      } else {
-        try {
-          const profile = await liff.getProfile();
-          const userId = profile.userId;
 
-          // 各フォームにユーザーIDを追加
-          ["userForm1", "userForm2", "userForm3","userForm4","userForm5","userForm6"].forEach(
-            (formId) => {
-              const form = document.getElementById(formId);
-              if (form) {
-                const userIdField = document.createElement("input");
-                userIdField.type = "hidden";
-                userIdField.name = "userId";
-                userIdField.value = userId;
-                form.appendChild(userIdField);
-              }
+
+    <script>
+      liff
+        .init({
+          liffId: "2007302862-3mj9r7W5",
+        })
+        .then(async () => {
+          if (!liff.isLoggedIn()) {
+            liff.login();
+          } else {
+            try {
+              const profile = await liff.getProfile();
+              const userId = profile.userId;
+    
+              // 各フォームにユーザーIDを追加
+              ["userForm1", "userForm2", "userForm3","userForm4","userForm5","userForm6"].forEach(
+                (formId) => {
+                  const form = document.getElementById(formId);
+                  if (form) {
+                    const userIdField = document.createElement("input");
+                    userIdField.type = "hidden";
+                    userIdField.name = "userId";
+                    userIdField.value = userId;
+                    form.appendChild(userIdField);
+                  }
+                }
+              );
+    
+              // ボタンのテキストを変更
+              document.querySelector(".button1").textContent = "ユーザー登録";
+              document.querySelector(".button2").innerHTML = "スタンプラリー<br>カード";
+              document.querySelector(".button3").textContent = "※";
+              document.querySelector(".button4").textContent = "終了証作成";
+              document.querySelector(".button5").textContent = "お問い合わせ";
+              document.querySelector(".button6").textContent = "背景画像を変更する";
+            } catch (err) {
+              console.log("プロフィール取得エラー: ", err);
             }
-          );
-
-          // ボタンのテキストを変更
-          document.querySelector(".button1").textContent = "ユーザー登録";
-          document.querySelector(".button2").innerHTML = "スタンプラリー<br>カード";
-          document.querySelector(".button3").textContent = "※";
-          document.querySelector(".button4").textContent = "終了証作成";
-          document.querySelector(".button5").textContent = "お問い合わせ";
-          document.querySelector(".button6").textContent = "背景画像を変更する";
-        } catch (err) {
-          console.log("プロフィール取得エラー: ", err);
-        }
-      }
-    })
-    .catch((err) => {
-      console.log("LIFF初期化エラー:", err);
-    });
-</script>
+          }
+        })
+        .catch((err) => {
+          console.log("LIFF初期化エラー:", err);
+        });
+    </script>
 
     <script>
 function disableButton(form) {
@@ -226,16 +228,18 @@ function disableButton(form) {
 }
 </script>
 
+<div class="tabs">
 
 <input
     id="registration"
+    class="registration"
     type="radio"
     name="tab_item"
     aria-label="ユーザー登録"
   />
   <label class="tab_item blinking-link" for="registration"><i class="fa fa-user-plus i-top" aria-hidden="true"></i> <br>ユーザー登録</label>
 
-<div class="tabs">
+
   <input
     id="stamp"
     type="radio"
@@ -259,7 +263,7 @@ function disableButton(form) {
     <div class="tab_content_description">
       <p class="c-txtsp">
        
-          <h2 class="title"> ↑↑ <i class="fa fa-user-plus" aria-hidden="true"></i>初めての方<br>(ユーザー登録をしよう！！)</h2>
+          <h2 class="ballon"> ↑↑  <i class="fa fa-user-plus" aria-hidden="true"></i>初めての方<br>(ユーザー登録をしよう！！)</h2>
        
 
         <script>
@@ -277,10 +281,11 @@ function disableButton(form) {
             text-align: center;
             animation: blinking 2s ease-in-out infinite alternate;
           }
+          
 
-          <style>
+ 
           .user-link{
-            background-color: yellow; !important;
+            background-color: yellow;
             text-align: center;
             
           }
@@ -296,7 +301,7 @@ function disableButton(form) {
           }
             
           </style>
-        
+          <br>
           <h2 class="title"><i class="fa-solid fa-qrcode"></i> QRコードを読み取って<br><i class="fa-solid fa-stamp"></i> スタンプを獲得しよう！</h2>
         
         <h3><button id="scanQR" type="button">QRコードをスキャン <br />ここをタップ！！</button></h3>
@@ -844,6 +849,38 @@ method="post"
     background-color: #66b2ff;
     color: #fff;
   }
+
+  label[for="registration"] {
+    border-color:  rgb(255, 196, 0);
+    background-color: rgb(255, 196, 0);
+    
+  }
+
+ .ballon{
+  position:relative;
+  display: inline-block;
+  margin:0 0;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555; 
+  font-size: 16px;
+  background: rgb(255, 196, 0);;
+  border-radius: 15px;
+}
+  
+ .ballon:before{
+  content:"";
+  position: absolute;
+  top: -25px;
+  left: 20%;
+  margin-left: -15px;
+  border: 15px solid transparent;
+  border-bottom: 15px solid rgb(255, 196, 0);
+
+ }
+
+ 
 
  
   
