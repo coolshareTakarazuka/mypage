@@ -174,7 +174,6 @@ loopPercentage();
 
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
 
-
     <script>
       liff
         .init({
@@ -218,6 +217,7 @@ loopPercentage();
           console.log("LIFF初期化エラー:", err);
         });
     </script>
+    
 
     <script>
 function disableButton(form) {
@@ -254,7 +254,7 @@ function disableButton(form) {
 
   
 
-  <input id="certificate" type="radio" name="tab_item" aria-label="お問い合わせ" />
+  <input id="certificate" type="radio" name="tab_item" aria-label="お問い合わせ" value="https://coolsharetakarazuka.github.io/ranking/" onclick="location.href=this.value" />
   <label class="tab_item" for="certificate"><i class="fa-solid fa-question-circle i-top"></i><br>お問い合わせ</label>
 
 
@@ -706,82 +706,26 @@ method="post"
       
         
         
-        <h3>お問い合わせ内容をリストから選んでください</h3>  
-
-        <form onsubmit="disableButton(this)"
-                              id="userForm5"
-                              action="https://script.google.com/macros/s/AKfycbx4XEA_DWstf1j0tXt3o5_UnaShFiHAV_fT6TTcHVm5ZHpF3xxz77_JFy1skRfL0hzOMg/exec"
-                              method="post"
-                            >
         
-        <select name="inquiryNo">
-            <optgroup label=""></optgroup>
-            <option value=""></option>           
-            <optgroup label="全体">
-                <option value="1">遊び方がわからない</option>
-            </optgroup>
-            <optgroup label="LINE友達追加">
-                <option value="2">LINEで友達の追加方法がわからない</option>
-            </optgroup>
-            <optgroup label="ユーザー登録">
-                <option value="3">ユーザー登録方法がわからない</option>              
-                <option value="4">LINEで「認証」画面が出た</option>
-                <option value="5">「ログインされていません」</option>  
-                <option value="6">個人情報の取り扱いについて教えてほしい</option>
-                <option value="7">参加名は何に使うのか</option>
-
-            </optgroup>
-            <optgroup label="スポットQRコードの読み取り">
-                <option value="8">QRコードの読み取り方法がわからない</option>
-                <option value="9">「端末のカメラを起動できません」とメッセージが出た</option>
-                <option value="10">「LINEアプリ内で開いてください」とメッセージが出た</option>
-                <option value="11">「無効なQRコードです」とメッセージが出た</option>
-            </optgroup>
-
-            <optgroup label="スポットIDのコピー">
-              <option value="12">スポットIDのコピー方法がわからない</option>
-              <option value="13">スポットIDの貼り付け先がわからない</option>
-              <option value="14">スポットIDの貼り付け方がわからない</option>
-            </optgroup>
-
-            <optgroup label="スタンプ獲得フォーム">
-                <option value="15">「×スポットIDが異なります。フォームで入力し直してください！」とメッセージが出た</option>
-                <option value="16">「×登録されていません。ユーザー登録をしてください！」とメッセージが出た</option>
-                <option value="17">「×本日、このスポットのスタンプは既に獲得済みです。明日以降獲得できます！」とメッセージが出た</option>
-            </optgroup>
-
-            <optgroup label="スタンプカード">
-              <option value="18">「ユーザーが登録されていません」とメッセージが出た</option>
-              <option value="19">景品の当選はいつ？</option>
-              <option value="20">景品は何回応募できる？</option>                
-          </optgroup>
-
-            
-            <optgroup label="景品の応募">
-                <option value="21">景品はどのようなものがある？</option>
-                <option value="22">景品の当選はいつ？</option>
-                <option value="23">景品は何回応募できる？</option>                
-            </optgroup>
-
-            <optgroup label="限定画像">
-              <option value="24">限定画像はスタンプ何個でプレゼント？</option>
-              <option value="25">限定画像の保存方法</option>
-          </optgroup>
-
-        </select>
-        <!-- ユーザーIDは動的に追加されます -->
-      <button class="button5" type="submit">ログインされていません</button>
-        </form>
-  <h2 title>お問い合わせ</h2>
-        <h3>※お急ぎの場合、公式LINEアカウントにお問合せください</h3>
-        <a href="https://lin.ee/S9iTJ3D"><img src="https://ibb.org.ru/images/2025/04/14/LINE.png" alt="LINE問い合わせ" border="0" class="lineImage"></a>
-                    
-                      
+     
+      
+        
 
       </p>
     </div>
   </div>
+
+        
+
+            
+       
+                    
+                      
+
+    
 </div>
+
+
 
 <style>
   .i-top{
