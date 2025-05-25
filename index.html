@@ -254,8 +254,8 @@ function disableButton(form) {
 
   
 
-  <input id="certificate" type="radio" name="tab_item" aria-label="お問い合わせ" value="https://coolsharetakarazuka.github.io/ranking/" onclick="location.href=this.value" />
-  <label class="tab_item" for="certificate"><i class="fa-solid fa-question-circle i-top"></i><br>お問い合わせ</label>
+  <input id="certificate" type="radio" name="tab_item" aria-label="ランキング" value="https://coolsharetakarazuka.github.io/ranking/" onclick="location.href=this.value" />
+  <label class="tab_item" for="ranking"><i class="fa-solid fa-trophy i-top"></i><br>ランキング</label>
 
 
   
@@ -363,7 +363,7 @@ function disableButton(form) {
 
 <form 
 id="userForm3"
-action="https://script.google.com/macros/s/AKfycbxCB2_RFdlGjeC8xdukm23gLtkHyI0a6y7PI4bLEDNFTgtjkJBDDqbjItyr26qX_WKNrw/exec"
+action="https://script.google.com/macros/s/AKfycbx_oWpemTmGRoKq3uJOLa8k-Th_BhXPrEpK4iR3cVjF_Cz90Y4P4J5O8kuKEBCJICQWew/exec"
 method="post"
 >
 <button id="button3" class="button3" type="submit" style="display: none;";>ログインされていません</button>
@@ -397,7 +397,7 @@ method="post"
           <h3>現在の獲得スタンプ数を確認できます！</h3>
           <form onsubmit="disableButton(this)"
               id="userForm2"
-              action="https://script.google.com/macros/s/AKfycbz5tFLvs7p-kZ5oeEzIPZc9NtJ_WKgrH3-siBuKJG6c1PS4FrTQ4ytnO1c3WL59-2atTA/exec"
+              action="https://script.google.com/macros/s/AKfycbwjc9tny4FSgWAEr0QSWjy72zgryMK0RAAF-l_KG9TSYN_BrBdMUg-VCYa5dXg5rdg/exec"
               method="post"
               >
            <!-- ユーザーIDは動的に追加されます -->
@@ -700,7 +700,7 @@ method="post"
 
 
   
-  <div class="tab_content" id="certificate_content">
+  <div class="tab_content" id="ranking_content">
     <div class="tab_content_description">
       <p class="c-txtsp">
       
@@ -783,7 +783,7 @@ method="post"
   /*選択されているタブのコンテンツのみを表示*/
   #registration:checked ~ #registration_content,
   #mypage:checked ~ #mypage_content,
-  #certificate:checked ~ #certificate_content,
+  #ranking:checked ~ #ranking_content,
   #stamp:checked ~ #stamp_content {
     display: block;
   }
