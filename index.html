@@ -168,13 +168,13 @@ loopPercentage();
           width="100px"
           height="100px"
         />
-        クールシェアたからづか<br>2025<br>マイページ
+        クールシェアたからづか<br>2025<br>スタンプラリー
         
       </h1>
 
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
 
-    
+   
     <script>
       liff
         .init({
@@ -218,6 +218,7 @@ loopPercentage();
           console.log("LIFF初期化エラー:", err);
         });
     </script>
+   
 
     <script>
 function disableButton(form) {
@@ -263,7 +264,7 @@ function disableButton(form) {
     <div class="tab_content_description">
       <p class="c-txtsp">
        
-          <h2 class="ballon"> ↑↑  <i class="fa fa-user-plus" aria-hidden="true"></i>初めての方<br>(ユーザー登録をしよう！！)</h2>
+          <h2 class="ballon"> <i class="fa fa-chevron-circle-up"></i>  初めての方 <i class="fa fa-user-plus" aria-hidden="true"></i><br>(ユーザー登録をしよう！！)</h2>
        
 
         <script>
@@ -366,7 +367,7 @@ id="userForm3"
 action="https://script.google.com/macros/s/AKfycbxOf3ejHZQ39W-wi4-XRX3dt2iFgjbBPXbwM7ySPfJ3NNkIHkRN5OV3YYtGbVIfAVCASg/exec"
 method="post"
 >
-<button id="button3" class="button3" type="submit" style="display: none;";>ログインされていません</button>
+<button id="button3" class="button3 btn" type="submit" style="display: none;";>ログインされていません</button>
   <h4>QRコードを読み込むと自動で送信されます</h4>
 </form>
 
@@ -394,19 +395,19 @@ method="post"
       <p class="c-txtsp">
        
           <h2 class="title">スタンプラリーカード</h2>
-          <h3>現在の獲得スタンプ数を確認できます！</h3>
+          <h3><i class="fa fa-angle-double-right"></i> 現在の獲得スタンプ数を確認できます！</h3>
           <form onsubmit="disableButton(this)"
               id="userForm2"
               action="https://script.google.com/macros/s/AKfycbw0qvqw1SM9AZwD8NNQen8PypYgciBHeh6L-SVk9xCDKTTuW-EtDSgGAec1b7vBq5rkag/exec"
               method="post"
               >
            <!-- ユーザーIDは動的に追加されます -->
-           <button class="button2" type="submit">ログインされていません</button>
+           <button class="button2 btn" type="submit">ログインされていません</button>
           </form><br>
 
 
        <h2 class="title">スタンプカード<br>背景画像を変更する</h2>
-<h3>お好きな背景画像に変更できます！</h3>
+<h3><i class="fa fa-angle-double-right"></i> お好きな背景画像に変更できます！</h3>
 
  <form onsubmit="disableButton(this)"
         id="userForm6"
@@ -492,7 +493,7 @@ method="post"
 
 </div>
 
-    <button class="button6" type="submit">背景画像を変更</button>
+    <button class="button6 btn" type="submit">背景画像を変更</button><br><br>
           </form>
 
 <style>
@@ -515,7 +516,7 @@ method="post"
 
       
         <h2 class="title">終了証</h2>
-        <h3>イベント終了時ゲットしよう！！</h3>
+        <h3><i class="fa fa-angle-double-right"></i> イベント終了時ゲットしよう！！</h3>
         
       <form onsubmit="disableButton(this)"
         id="userForm4"
@@ -523,7 +524,7 @@ method="post"
         method="post"
         >
       <!-- ユーザーIDは動的に追加されます -->
-      <button class="button4" type="submit">ログインされていません</button>
+      <button class="button4 btn" type="submit">ログインされていません</button>
       </form>
         
 
@@ -727,10 +728,11 @@ method="post"
   }
   
   .title {
-    border-bottom-style: double;
+    border-style: double;
     border-color: blue;
     display: inline-block;
     text-align: center;
+    padding: 0 10px;
   }
   .tabs {
     margin-top: 5px;
@@ -865,7 +867,7 @@ method="post"
         <a
           href="
         https://coolsharetakarazuka.github.io/how_to_play/" target="_self"
-          ><i class="fa-regular fa-list-ol"></i><br /><span class="iconname"
+          ><i class="fa-solid fa-list-ol"></i><br /><span class="iconname"
             >遊び方</span
           ></a
         >
@@ -947,7 +949,7 @@ method="post"
       }
 
       button {
-        font-size: 150%;
+        font-size: 100%;
         text-align: center;
         display: inline-block;
       }
@@ -989,6 +991,26 @@ method="post"
   .explain{
     width:100%;
   }
+
+   .btn{
+                  display: inline-block;
+                  padding: 0.5em 1em;
+                  text-decoration: none;
+                  background: #668ad8;
+                  color: #fff;
+                  border-bottom: solid 4px #627295;
+                  border-radius: 3px;
+                  font-family: sans-serif;
+                  font-weight: bold;
+                }
+
+                .btn:active {
+                /*ボタンを押したとき*/
+                -webkit-transform: translateY(4px);
+                transform: translateY(4px);/*下に動く*/
+                box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+                border-bottom: none;
+                }
 
       </style>
   </body>
