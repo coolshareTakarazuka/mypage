@@ -189,7 +189,7 @@ loopPercentage();
               const userId = profile.userId;
     
               // 各フォームにユーザーIDを追加
-              ["userForm1", "userForm2", "userForm3","userForm4","userForm5","userForm6"].forEach(
+              ["userForm1", "userForm2", "userForm3","userForm4","userForm5","userForm6","userForm7"].forEach(
                 (formId) => {
                   const form = document.getElementById(formId);
                   if (form) {
@@ -209,6 +209,7 @@ loopPercentage();
               document.querySelector(".button4").textContent = "終了証作成";
               document.querySelector(".button5").textContent = "お問い合わせ";
               document.querySelector(".button6").textContent = "背景画像を変更する";
+              document.querySelector(".button7").textContent = "参加名を変更する";
             } catch (err) {
               console.log("プロフィール取得エラー: ", err);
             }
@@ -303,7 +304,7 @@ function disableButton(form) {
             
           </style>
           <br>
-          <h2 class="title"><i class="fa-solid fa-qrcode"></i> QRコードを読み取って<br><i class="fa-solid fa-stamp"></i> スタンプを獲得しよう！</h2>
+          <h2 class="qrTitle"><i class="fa-solid fa-qrcode"></i> QRコードを読み取って<br><i class="fa-solid fa-stamp"></i> スタンプを獲得しよう！</h2>
         
         <h3><button id="scanQR" type="button">QRコードをスキャン <br />ここをタップ！！</button></h3>
     <h3>
@@ -393,9 +394,15 @@ method="post"
   <div class="tab_content" id="mypage_content">
     <div class="tab_content_description">
       <p class="c-txtsp">
+
+        <h3>①現在のスタンプ数を確認・②背景画像 ③参加名を変更・④終了証をダウンロード</h3>
        
+        <details class="accordion-001">
+          <summary>
           <h2 class="title">スタンプラリーカード</h2>
+        </summary>
           <h3><i class="fa fa-angle-double-right"></i> 現在の獲得スタンプ数を確認できます！</h3>
+       
           <form onsubmit="disableButton(this)"
               id="userForm2"
               action="https://script.google.com/macros/s/AKfycbw0qvqw1SM9AZwD8NNQen8PypYgciBHeh6L-SVk9xCDKTTuW-EtDSgGAec1b7vBq5rkag/exec"
@@ -404,14 +411,17 @@ method="post"
            <!-- ユーザーIDは動的に追加されます -->
            <button class="button2 btn" type="submit">ログインされていません</button>
           </form><br>
+          </details>
 
-
-       <h2 class="title">スタンプカード<br>背景画像を変更する</h2>
+          <details class="accordion-001">
+            <summary>
+       <h2 class="title">スタンプカードの<br>背景画像を変更する</h2>
+       </summary>
 <h3><i class="fa fa-angle-double-right"></i> お好きな背景画像に変更できます！</h3>
 
  <form onsubmit="disableButton(this)"
         id="userForm6"
-        action="https://script.google.com/macros/s/AKfycbw7-3umoirGSPcsBOO7G8fAmUZ-V2lv-kbwhvVFvBvGxde2s08LUDVhAzpBqjLTFM-u/exec"
+        action="https://script.google.com/macros/s/AKfycbx0u1D8vF2dpP66bqUmTOeALsF4R2hefR87RkI_5zEcweT-83dwWP48CQl_5NUphaI-/exec"
         method="post"
         >
 
@@ -513,9 +523,37 @@ method="post"
     background-color: #fff;
 }
 </style>
+</details>
 
-      
-        <h2 class="title">終了証</h2>
+<details class="accordion-001">
+  <summary>    
+    <h2 class="title">参加名を変更する</h2></summary>
+    <h3><i class="fa fa-angle-double-right"></i> お好きなニックネームに変更できます</h3>
+
+    <form onsubmit="disableButton(this)"
+        id="userForm7"
+        action="https://script.google.com/macros/s/AKfycbzZddFMAprL1M259fLHoHA_PBWE9rXG8-43uLNarZjK5vRDYQOxBhGj-P345vY2IKN0ZA/exec"
+        method="post"
+        >
+
+        <input type="text" name="name" id="name" required /><br><br>
+                        
+                        
+      <!-- ユーザーIDは動的に追加されます -->
+      <button class="button7 btn" type="submit">ログインされていません</button>
+      </form>
+      <h4>
+        本名でなくて大丈夫です👌<br />
+        お好きな名前でご参加ください！!
+      </h4>
+      </details>
+
+    </details>
+
+
+<details class="accordion-001">
+  <summary>      
+        <h2 class="title">終了証</h2></summary>
         <h3><i class="fa fa-angle-double-right"></i> イベント終了時ゲットしよう！！</h3>
         
       <form onsubmit="disableButton(this)"
@@ -526,6 +564,7 @@ method="post"
       <!-- ユーザーIDは動的に追加されます -->
       <button class="button4 btn" type="submit">ログインされていません</button>
       </form>
+      </details>
         
 
       </p>
@@ -537,7 +576,7 @@ method="post"
   <div class="tab_content" id="registration_content">
     <div class="tab_content_description">
       <p class="c-txtsp">
-        <h2 class="title">ユーザー登録</h2>
+        <h2 class="qrTitle">ユーザー登録</h2>
                         <form onsubmit="disableButton(this)"
                               id="userForm1"
                               action="https://script.google.com/macros/s/AKfycbw1ADvc3sn9whqYzYy2WjBDrlvBFmO5JIaChwdQkwqI4gou4s0wKPyZ7y0vKnREQsdhSQ/exec"
@@ -727,13 +766,14 @@ method="post"
     font-size: 200%;
   }
   
-  .title {
+  .qrTitle {
     border-style: double;
     border-color: blue;
     display: inline-block;
     text-align: center;
     padding: 0 10px;
   }
+ 
   .tabs {
     margin-top: 5px;
     padding-bottom: 5px;
@@ -1013,6 +1053,64 @@ method="post"
                 box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
                 border-bottom: none;
                 }
+
+
+                .accordion-001 {
+      max-width: 500px;
+      background-color: #f2f2f2;
+  }
+  
+  .accordion-001:not([open]) {
+      margin-bottom: 7px;
+  }
+  
+  .accordion-001 summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      padding: 1em 2em;
+      border-radius: 5px;
+      background-color: #72d2f8;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+  }
+  
+  .accordion-001 summary::-webkit-details-marker {
+      display: none;
+  }
+  
+  .accordion-001 summary::after {
+      transform: translateY(-25%) rotate(45deg);
+      width: 7px;
+      height: 7px;
+      margin-left: 10px;
+      border-bottom: 3px solid #fff;
+      border-right: 3px solid #fff;
+      content: '';
+      transition: transform .3s;
+  }
+  
+  .accordion-001[open] summary::after {
+      transform: rotate(225deg);
+  }
+  
+  .accordion-001 p {
+      transform: translateY(-10px);
+      opacity: 0;
+      margin: 0;
+      padding: 1em 2em 2em 2em;
+      color: #333333;
+      transition: transform .5s, opacity .5s;
+  }
+  
+  .accordion-001[open] p {
+      transform: none;
+      opacity: 1;
+  }
+
+            
 
       </style>
   </body>
