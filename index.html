@@ -18,6 +18,9 @@
       href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
   </head>
   
   <body>
@@ -144,7 +147,7 @@ function loopPercentage() {
   const elapsed = now - loopStart;
 
   if (elapsed >= duration) {
-    percentSpan.innerHTML = `間も無くスタート！！<br>※通信状況等により数分かかる場合があります`; // 最終表示
+    percentSpan.innerHTML = `間も無くスタート！！<br>※通信状況等により<br>数分かかる場合があります`; // 最終表示
     return; // ループ終了
   }
 
@@ -174,7 +177,7 @@ loopPercentage();
 
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
 
-  
+
     <script>
       liff
         .init({
@@ -189,7 +192,7 @@ loopPercentage();
               const userId = profile.userId;
     
               // 各フォームにユーザーIDを追加
-              ["userForm1", "userForm2", "userForm3","userForm4","userForm5","userForm6","userForm7"].forEach(
+              ["userForm1", "userForm2", "userForm3","userForm4","userForm5","userForm6","userForm7","userForm8"].forEach(
                 (formId) => {
                   const form = document.getElementById(formId);
                   if (form) {
@@ -210,6 +213,7 @@ loopPercentage();
               document.querySelector(".button5").textContent = "お問い合わせ";
               document.querySelector(".button6").textContent = "背景画像を変更する";
               document.querySelector(".button7").textContent = "参加名を変更する"
+              document.querySelector(".button8").textContent = "応募状況確認"
             } catch (err) {
               console.log("プロフィール取得エラー: ", err);
             }
@@ -219,6 +223,7 @@ loopPercentage();
           console.log("LIFF初期化エラー:", err);
         });
     </script>
+
 
 
     <script>
@@ -372,8 +377,108 @@ method="post"
   <h4>QRコードを読み込むと自動でページが切り替わります</h4>
 </form>
 
-        
 
+
+イベント終了後に表示する画面 ↓
+
+<h2 class="thank">クールシェアたからづか2025<br>デジタルスタンプラリーに<br>ご参加誠にありがとうございました 🙇</h2>
+<h2 class="youtube">10月24日(金) 18:00〜<br> <i class="fa-brands fa-youtube youtube"></i> YouTubeLIVEにて当選発表を行います！！</h2>
+
+<h2 class="gift">景品応募状況・宛先確認</h2>
+<h3 class="tousen">💡景品当選の場合、<br>こちらから住所の確認をお願いいたします</h3>
+<h3>💡抽選会の前に、<br>ご自身の応募番号をこちらからご確認ください</h3>
+<h3>💡抽選会では、<br>応募番号と参加名(ニックネーム)を発表します</h3>
+
+<form onsubmit="disableButton(this)"
+id="userForm8"
+action="https://script.google.com/macros/s/AKfycbz3HZNo-iSQk5nr33R6vSdQi8E72FnUv4czOyVHBNAPazelaGLn9WpKhXbsjVu53lrE/exec"
+method="post"
+>
+<!-- ユーザーIDは動的に追加されます -->
+<button class="button8 btn" type="submit">ログインされていません</button>
+</form>
+
+        <h3>当選発表まであと<br><span id="day"></span>日 <span id="hour"></span>時間 <span id="min"></span>分 <!--<span id="second"></span>秒--></h3>
+        <a href="https://www.youtube.com/live/5Upxrb2dxRc?feature=shared" class="youtube"><i class="fa-brands fa-youtube youtube2"></i> YouTube LIVE</a><br><br>
+        <iframe  src="https://www.youtube.com/embed/5Upxrb2dxRc?si=XKs7RRox8HJNTw6R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+        <script>
+
+          function showRestTime(){
+      
+          const now = new Date();
+          const eventDay = new Date(2025, 9, 24, 18, 0, 0);
+          const diff = eventDay.getTime() - now.getTime();
+      
+          const day = Math.floor(diff / 1000 / 60 / 60 / 24);
+          const hour = Math.floor(diff / 1000 / 60 / 60) % 24;
+          const min = Math.floor(diff / 1000 / 60 ) % 60 + 1;
+          const second = Math.floor(diff / 1000 ) % 60; 
+      
+          document.getElementById("day").textContent = day;
+          document.getElementById("hour").textContent = hour;
+          document.getElementById("min").textContent = String(min).padStart(2, '0');
+          //document.getElementById("second").textContent = String(second).padStart(2, '0');
+      
+          }
+      
+          setInterval(showRestTime, 1000);
+
+        </script>
+      
+
+<style>
+  h2.gift{
+        border-color: #66b2ff !important;
+        border-style: double;
+        border-width: 5px;
+      }
+  .thank{
+    text-align: center;
+    background-color: skyblue;
+    padding: 5px;
+  }
+
+  i.youtube {
+    color: #ff0000;
+  }
+
+  span{
+        font-family: Orbitron;
+        font-size: 40px;
+        
+        
+    }
+
+    li{
+       
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+
+    a.youtube{
+        margin : 0 ;
+        text-decoration: none;
+        color: #fff;
+        background-color: #FF0000;
+        padding: 10px;
+        font-size: 200%;
+      }
+
+      h2.youtube {
+    border-color: #FF0000;
+    border-width: 5px;
+    border-style: double;
+    
+}
+
+
+
+      
+
+
+</style>
       
           
 
