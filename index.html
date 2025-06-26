@@ -267,7 +267,7 @@ function disableButton(form) {
 
   
   <div class="tab_content" id="stamp_content">
-    <div class="tab_content_description">
+    <div class="２次元コード">
       <p class="c-txtsp">
        
           <h2 class="ballon"> <i class="fa fa-chevron-circle-up"></i>  初めての方 <i class="fa fa-user-plus" aria-hidden="true"></i><br>(ユーザー登録をしよう！！)</h2>
@@ -309,11 +309,11 @@ function disableButton(form) {
             
           </style>
           <br>
-          <h2 class="qrTitle"><i class="fa-solid fa-qrcode"></i> QRコードを読み取って<br><i class="fa-solid fa-stamp"></i> スタンプを獲得しよう！</h2>
+          <h2 class="qrTitle"><i class="fa-solid fa-qrcode"></i> ２次元コードを読み取って<br><i class="fa-solid fa-stamp"></i> スタンプを獲得しよう！</h2>
         
-        <h3><button id="scanQR" type="button">QRコードをスキャン <br />ここをタップ！！</button></h3>
+        <h3><button id="scanQR" type="button">２次元コードをスキャン <br />ここをタップ！！</button></h3>
     <h3>
-      ※QRコードはスポットごとに違います!<br />※スポットごとに読み取ってください!
+      ※２次元コードはスポットごとに違います!<br />※スポットごとに読み取ってください!
     </h3>
    
     <p>スキャン結果: <span id="result"></span></p>
@@ -322,7 +322,7 @@ function disableButton(form) {
    <script>
   
 
-        // ✅ QRコードスキャン処理
+        // ✅ ２次元コードスキャン処理
         document.getElementById("scanQR").addEventListener("click", () => {
           if (!liff.isInClient()) {
             alert("LINEアプリ内で開いてください");
@@ -332,7 +332,7 @@ function disableButton(form) {
           liff.scanCodeV2().then((result) => {
             const qrCodeData = result.value;
             
-            document.getElementById("result").textContent = "QRコードの読み取りに成功しました";
+            
             
 
             const params = new URLSearchParams(qrCodeData.split('?')[1]);
@@ -345,17 +345,19 @@ function disableButton(form) {
               spotIdField.name = "spotId";
               spotIdField.value = spotId;
               form.appendChild(spotIdField);
-
+              
+              document.getElementById("result").textContent = "２次元コードの読み取りに成功しました。自動でページが切り替わります！";
               document.getElementById("userForm3").submit(); // ボタンを押さずに送信
               
             } else {
-              alert("無効なQRコードです");
+              alert("無効な２次元コードです");
+              document.getElementById("result").textContent = "正しい２次元コードを読み取ってください";
             }
 
            
             
           }).catch((err) => {
-            console.error("QRコードスキャンエラー:", err);
+            console.error("２次元コードスキャンエラー:", err);
           });
         });
 
@@ -374,7 +376,7 @@ action="https://script.google.com/macros/s/AKfycbyJTTDUd3xG_jHDrHs0q3obUDX1PMYPh
 method="post"
 >
 <button id="button3" class="button3 btn" type="submit" style="display: none;";>ログインされていません</button>
-  <h4>QRコードを読み込むと自動でページが切り替わります</h4>
+  <h4>２次元コードを読み込むと自動でページが切り替わります</h4>
 </form>
 
 
@@ -449,12 +451,14 @@ method="post"
     color: #ff0000;
   }
 
+  /*
   span{
         font-family: Orbitron;
         font-size: 40px;
         
         
     }
+*/
 
     li{
        
@@ -502,7 +506,7 @@ method="post"
 
   
   <div class="tab_content" id="mypage_content">
-    <div class="tab_content_description">
+    <div class="２次元コード">
       <p class="c-txtsp">
         <h3>このページでできること・・・</h3>
         <h3>①現在のスタンプ数を確認<br>②背景画像 ③参加名を変更<br>④終了証をダウンロード</h3>
@@ -986,6 +990,31 @@ method="post"
   
 </style>
 
+
+<h3 class="footer">主催</h3>
+<h3>社会福祉法人 宝塚市社会福祉協議会</h3>
+<h3 class="footer">クールシェアたからづかに関するお問合せ</h3>
+<h4><a href="tel:0797865003">0797-86-5003</a> または <a href="https://line.me/R/oaMessage/@473kgyiz/?">LINE公式アカウント
+</a> まで</h4>
+<h3 class="footer">協力団体</h3>
+<h4>
+宝塚市民生委員・児童委員連合会
+宝塚商工会議所
+宝塚市商店連合会
+宝塚市介護保険事業者協会
+宝塚市薬剤師会
+兵庫県理容生活衛生同業組合 宝塚支部
+宝塚市社会福祉法人連絡協議会
+大塚製薬株式会社
+ニュートラシューティカルズ事業部
+</h4>
+
+<style>
+    h3.footer{
+        text-align: center;
+        border-style: double;
+    }
+</style>
 
       <br>
       <br>
