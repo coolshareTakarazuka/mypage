@@ -336,7 +336,9 @@ function disableButton(form) {
             
 
             const params = new URLSearchParams(qrCodeData.split('?')[1]);
-            const spotId = params.get('spot') || params.get('spotId');
+            const beforeSpotId = params.get('spot') || params.get('spotId');
+            const spotId = beforeSpotId.trim().replace(/[\n\r]/g, '');
+            
 
             if (spotId) {
               const form = document.getElementById("userForm3");
