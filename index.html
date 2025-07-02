@@ -175,10 +175,62 @@ loopPercentage();
         
       </h1>
 
+      <ul class="scroll-list">
+        <li class="scroll-message"></li>
+      </ul>
+      
+      <style>
+        .scroll-list{
+          display: flex;
+          list-style: none;
+          padding-inline: 0;
+          margin-inline: 0;
+          gap: 0;
+          background-color: yellow;
+          overflow: hidden;
+        }
+
+        .scroll-list li{
+          color: gray;
+          font-size: 2em;
+          font-weight: bold;
+          white-space: nowrap;
+          padding: 0 1em 0 0;
+          margin: 0;
+          transform: translateX(40%);
+          animation: marquee-left 30s linear infinite;
+        }
+
+        @keyframes marquee-left{
+       
+          100%{
+            transform: translateX(-100%);
+          }
+        }
+      </style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+<script>
+  fetch("https://docs.google.com/spreadsheets/d/10qt47x8Ofmj4D6ts6c-8uNVbxsgddpiH9KGovX8fVjc/gviz/tq?tqx=out:csv")
+    .then((response) => response.text())
+    .then((csvText) => {
+      const parsedData = Papa.parse(csvText, { header: true });
+      const messageData = parsedData.data;
+
+      // A2セルの値（spot2列の1行目の値）を取得
+      const message = messageData[0]?.message || "不明";
+
+      // HTMLのpClass2の中身を置き換える
+      const messageText = `${message}`;
+      document.querySelector(".scroll-message").innerHTML = messageText;
+    });
+</script>
+
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
 
 
-    <script>
+   <script>
       liff
         .init({
           liffId: "2007302862-3mj9r7W5",
@@ -235,6 +287,7 @@ function disableButton(form) {
 }
 </script>
 
+
 <div class="tabs">
 
 <input
@@ -272,6 +325,7 @@ function disableButton(form) {
        
           <h2 class="ballon"> <i class="fa fa-chevron-circle-up"></i>  初めての方 <i class="fa fa-user-plus" aria-hidden="true"></i><br>(ユーザー登録をしよう！！)</h2>
        
+          
 
         <script>
         function selectRadio(id) {
