@@ -376,7 +376,7 @@ function disableButton(form) {
             
           </style>
           <br>
-          <h2 class="qrTitle"><i class="fa-solid fa-qrcode"></i> ２次元コード読み取って<br><i class="fa-solid fa-stamp"></i> スタンプを獲得しよう！</h2>
+          <h2 class="qrTitle" id="qrTitle"><i class="fa-solid fa-qrcode"></i> ２次元コード読み取って<br><i class="fa-solid fa-stamp"></i> スタンプを獲得しよう！</h2>
         
         <h3><button id="scanQR" type="button">２次元コードスキャン <br />ここをタップ！！</button></h3>
     <h3>
@@ -416,6 +416,7 @@ function disableButton(form) {
               form.appendChild(spotIdField);
               
               document.getElementById("result").textContent = "２次元コードの読み取りに成功しました。自動でページが切り替わります！";
+              document.getElementById("scanQR").textContent = "送信中";
               document.getElementById("userForm3").submit(); // ボタンを押さずに送信
               
             } else {
