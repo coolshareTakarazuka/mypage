@@ -243,55 +243,55 @@ loopPercentage();
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
 
 
- <script>
-      liff
-        .init({
-          liffId: "2007302862-3mj9r7W5",
-        })
-        .then(async () => {
+<script>
+  liff.init({ liffId: "2007302862-3mj9r7W5" })
+    .then(async () => {
+      if (!liff.isLoggedIn()) {
+        liff.login(); // この時点で画面はリロードされるので以降の処理はされない
+        return;
+      }
 
-         const loadingEl = document.querySelector('#loading');
-         if (loadingEl) loadingEl.classList.add('loadEnd');
-         
-          if (!liff.isLoggedIn()) {
-            liff.login();
-          } else {
-            try {
-              const profile = await liff.getProfile();
-              const userId = profile.userId;
-    
-              // 各フォームにユーザーIDを追加
-              ["userForm1", "userForm2", "userForm3","userForm4","userForm5","userForm6","userForm7","userForm8"].forEach(
-                (formId) => {
-                  const form = document.getElementById(formId);
-                  if (form) {
-                    const userIdField = document.createElement("input");
-                    userIdField.type = "hidden";
-                    userIdField.name = "userId";
-                    userIdField.value = userId;
-                    form.appendChild(userIdField);
-                  }
-                }
-              );
-    
-              // ボタンのテキストを変更
-              document.querySelector(".button1").textContent = "ユーザー登録";
-              document.querySelector(".button2").innerHTML = "スタンプラリー<br>カード";
-              document.querySelector(".button3").textContent = "※";
-              document.querySelector(".button4").textContent = "終了証作成";
-              document.querySelector(".button5").textContent = "お問い合わせ";
-              document.querySelector(".button6").textContent = "背景画像を変更する";
-              document.querySelector(".button7").textContent = "参加名を変更する"
-              document.querySelector(".button8").textContent = "応募状況確認"
-            } catch (err) {
-              console.log("プロフィール取得エラー: ", err);
+      try {
+        const profile = await liff.getProfile();
+        const userId = profile.userId;
+
+        // ユーザーIDをフォームに追加
+        ["userForm1", "userForm2", "userForm3", "userForm4", "userForm5", "userForm6", "userForm7", "userForm8"].forEach(
+          (formId) => {
+            const form = document.getElementById(formId);
+            if (form) {
+              const userIdField = document.createElement("input");
+              userIdField.type = "hidden";
+              userIdField.name = "userId";
+              userIdField.value = userId;
+              form.appendChild(userIdField);
             }
           }
-        })
-        .catch((err) => {
-          console.log("LIFF初期化エラー:", err);
-        });
-    </script> 
+        );
+
+        // ボタンの表示更新
+        document.querySelector(".button1").textContent = "ユーザー登録";
+        document.querySelector(".button2").innerHTML = "スタンプラリー<br>カード";
+        document.querySelector(".button3").textContent = "※";
+        document.querySelector(".button4").textContent = "終了証作成";
+        document.querySelector(".button5").textContent = "お問い合わせ";
+        document.querySelector(".button6").textContent = "背景画像を変更する";
+        document.querySelector(".button7").textContent = "参加名を変更する";
+        document.querySelector(".button8").textContent = "応募状況確認";
+
+      } catch (err) {
+        console.log("プロフィール取得エラー: ", err);
+      } finally {
+        // ここでローディング終了
+        const loadingEl = document.querySelector('#loading');
+        if (loadingEl) loadingEl.classList.add('loadEnd');
+      }
+    })
+    .catch((err) => {
+      console.log("LIFF初期化エラー:", err);
+    });
+</script>
+
 
 
 
