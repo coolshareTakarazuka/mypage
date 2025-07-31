@@ -244,6 +244,24 @@ loopPercentage();
 
 
 <script>
+
+let isLiffReady = false;
+let isPageLoaded = false;
+
+function checkLoading(){
+  if(isLiffReady && isPageLoaded){
+    // ここでローディング終了
+    const loadingEl = document.querySelector('#loading');
+    if (loadingEl) loadingEl.classList.add('loadEnd');
+  }
+}
+
+window.onload = () => {
+  isPageLoaded = true;
+  console.log(isPageLoaded);
+  checkLoading();
+}
+
   liff.init({ liffId: "2007302862-3mj9r7W5" })
     .then(async () => {
       if (!liff.isLoggedIn()) {
@@ -286,9 +304,9 @@ loopPercentage();
       } catch (err) {
         console.log("プロフィール取得エラー: ", err);
       } finally {
-        // ここでローディング終了
-        const loadingEl = document.querySelector('#loading');
-        if (loadingEl) loadingEl.classList.add('loadEnd');
+        isLiffReady = true;
+        console.log(isLiffReady);
+        checkLoading();
       }
     })
     .catch((err) => {
