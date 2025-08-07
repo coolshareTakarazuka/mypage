@@ -24,31 +24,29 @@
   </head>
   
   <body>
-  <header>
+
           
-       <header>
-          <div id="loading">
+<!--        <header> -->
+<!--              <div id="loading">
         <div class="loading-content">
             <img src="https://i.ibb.co/Wv8X3LVh/1.png">
-          <h2>システム改修中です！！</h2>
-<!--           <h2>loading・・・</h2> -->
-         <h2>ただいまエラーの修復中です・・・</h2>
-          <h2>期間：8/7　〜 8/12 9:00 予定<br>期間は変更になる<br>可能性があります。</h2>
-<!--           <div class="progress-wrapper">
+          <h2>スタンプラリーの準備中です！！</h2>
+          <h2>loading・・・</h2>
+          <div class="progress-wrapper">
             <div class="progress-bar"></div>
             <div class="progress-text"><span class="percent">0%</span></div>
-          </div> -->
+          </div>
         </div>
     </div>
-<!--       <script>
+      <script>
         window.addEventListener('load',function(){
             const element = document.querySelector('#loading')
             element.classList.add('loadEnd');
         });
-    </script> -->
+    </script>
     <style>
         #loading{
-/*             transition: all 1s; */
+            transition: all 1s;
             background-color: #ffffff;
             position:fixed;
             z-index: 999;
@@ -59,7 +57,7 @@
 
         #loading img{
             width: 40%;
-/*             animation: slide 4s linear infinite; */
+            animation: slide 4s linear infinite;
             position: relative;
         }
 
@@ -70,7 +68,7 @@
             align-items: center;
         }
 
-/*         @keyframes slide {
+        @keyframes slide {
             0% {
                 transform: translateX(-100%);
             }
@@ -96,7 +94,7 @@
 /*      .loadEnd{
           opacity: 0;
           visibility: hidden;
-          } */
+          }
     
 
 
@@ -139,7 +137,7 @@
   }
 </style>
 
-<!-- <script>
+<script>
 const percentSpan = document.querySelector('.percent');
 const loopStart = Date.now();
 const duration = 20000; // 20秒
@@ -162,9 +160,72 @@ function loopPercentage() {
 
 loopPercentage();
 </script>
- -->
+
         
-  </header>
+  </header> -->
+
+    <div class="modal" id="modal">
+      <h3 class="modal__txt">
+        <p>クールシェアたからづか<br>ご参加の皆様へ</p>
+        <p>皆様クールシェアをお楽しみいただきありがとうございます。</p>
+          <p>システムにつきまして、ご不便をお掛けし申し訳ありません。</p>
+          <p>エラーの状況確認と改善のため、<br>デジタルスタンプラリーのシステムを休止させていただきます。<br>(期間:本日8月7日木曜17時半～8月12日火曜9時予定)</p>
+          <p>なお、シール形式のスタンプラリーは引続きご利用頂けます。</p><br>
+          <p>クールシェアたからづか 事務局</p>
+          <button class="pageClose" id="pageClose"> ページを閉じる</button>
+        </h3>
+
+      
+    </div>
+
+    <button class="closeBtn" id="closeBtn"></button>
+
+    <style>
+      div.modal{
+        display: block;
+        position: fixed;
+        margin:0;
+        z-index: 990;
+        background-color: pink;
+        height: 100vh;  
+        width:100%; 
+              }
+
+      h3.modal__txt{
+        text-align: center;
+        padding: 50% 0;
+  
+      }
+
+      button.closeBtn{
+        width:100%;
+        position: fixed;
+        z-index: 999;
+        bottom: 1%;
+      }
+
+      div.modal.close{
+        display:none;
+
+              }
+    </style>
+
+    <script>
+      const closeBtn =  document.getElementById('closeBtn');
+      const modal = document.querySelector('.modal');
+
+      const pageClose = document.getElementById('pageClose');
+
+      closeBtn.addEventListener('click' , function(){
+        
+        modal.classList.toggle('close');
+      
+      });
+
+      pageClose.addEventListener('click' , function() {
+        window.close();
+      });
+    </script>
   
     <h1>
         <img
@@ -176,6 +237,7 @@ loopPercentage();
         クールシェアたからづか<br>2025<br>スタンプラリー
         
       </h1>
+      <h3><button id="scanQR" type="button"></button>
 
       <ul class="scroll-list">
         <li class="scroll-message"></li>
@@ -404,9 +466,10 @@ function disableButton(form) {
             
           </style>
           <br>
-          <h2 class="qrTitle" id="qrTitle"><i class="fa-solid fa-qrcode"></i> ２次元コード読み取って<br><i class="fa-solid fa-stamp"></i> スタンプを獲得しよう！</h2>
+          <h2 class="qrTitle">ただいまシステム改修中です🙇<br>ご利用いただけません</h2>
+          <!-- <h2 class="qrTitle" id="qrTitle"><i class="fa-solid fa-qrcode"></i> ２次元コード読み取って<br><i class="fa-solid fa-stamp"></i> スタンプを獲得しよう！</h2> -->
         
-        <h3><button id="scanQR" type="button">２次元コードスキャン <br />ここをタップ！！</button></h3>
+        <!-- <h3><button id="scanQR" type="button">２次元コードスキャン <br />ここをタップ！！</button></h3> -->
     <h3>
       ※２次元コードはスポットごとに違います!<br />※スポットごとに読み取ってください!
     </h3>
