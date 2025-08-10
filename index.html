@@ -478,36 +478,84 @@ function disableButton(form) {
     <p>スキャン結果: <span id="result"></span></p>
 
       
-          <div class="modal" id="modal">
-      <h2 class="modal__txt">
+          </script>
+    <div class="modal1 open" id="modal1">
+      <h2 class="modal1__txt">
         【重要なお知らせ】<br />クールシェアたからづかご参加の方へ
       </h2>
-      <h3 class="modal__txt">
+      <h3 class="modal1__txt">
         <p>
-          現在一部でQRコードの写真を使用して、スタンプを集めるという行為が確認されております。
+          8月12日より、<br />スタンプラリーを<br />より安心してお楽しみいただくため<br />スタンプ獲得時に【📍位置情報の許可】<br />が必要になります
         </p>
         <p>
-          そのため、公平性を保つ目的で、<br />「スポットの近くにいることの確認」として<br />位置情報を一時的に使わせていただきます。
+          • 位置情報は スタンプ獲得時のみ 取得します<br />
+          • 利用目的は「スポットにいることの確認」だけです<br />
+          • その他の目的では一切利用しません
         </p>
         <p>
-          ※位置情報の取得は、<br />「スポットにいることの確認」<br />にのみ使用します。<br />※その他の場面では取得されることはなく、<br />その他の目的で使用することもありません。
+          許可画面が表示されたら、<br />「許可する」を選択してください<br />※端末によって表示が<br />異なる可能性があります<br />
+          <img class="permission" src="./permision.png" />
         </p>
       </h3>
-      <button id="modal__btn" class="modal__btn">同意する</button>
+      <button id="modal1__btn" class="modal1__btn">次に進む</button>
+    </div>
+
+    <div class="modal2" id="modal2">
+      <h2 class="modal2__txt">
+        位置情報の設定をご確認の上<br />再度お試しください
+      </h2>
+      <h3 class="modal2__txt">
+        <p>ご利用の端末の設定アプリで<br />位置情報の設定をしてください</p>
+        <p>【iphoneの方】</p>
+      </h3>
+
+      <h4>
+        <ol>
+          <li>
+            「設定」>「プライバシーとセキュリティ」>「位置情報サービス」の順にタップ
+          </li>
+          <li>「位置情報サービス」をオンにする</li>
+          <li>下にスクロールしてLINE アプリを探す</li>
+          <li>LINE アプリをタップし、オプションを選択</li>
+          <li>［この App の使⽤中のみ許可］、または［常 に］に設定</li>
+        </ol>
+      </h4>
+
+      <h3 class="modal2__txt">
+        <p>【Androidの方】</p>
+      </h3>
+
+      <h4>
+        <ol>
+          <li>[設定] > [位置情報]の順にタップ</li>
+          <li>[位置情報を使用]を「オン」にする</li>
+          <li>
+            再び[設定]画面に戻り、[アプリ] > [LINE] > [権限] >
+            [位置情報]の順にタップ。
+          </li>
+          <li>[アプリの使用中のみ許可]に設定</li>
+        </ol>
+      </h4>
+
+      <button class="modal2__btn"
+        onclick="location.href='https://liff.line.me/2007302862-3mj9r7W5'"
+      >
+        再度読み込む
+      </button>
     </div>
 
     <script>
-      window.onload = function handleLocationFlow() {
-        const isPermissionGranted = checkGeolocationPermission();
+      let userLat = "";
+      let userLon = "";
 
-        if (isPermissionGranted) {
-          // ✅ 許可済み：そのまま進行
-          sortByDistance(); // 位置情報取得＋スポット判定
-        } else {
-          // ❌ 未許可 or 初回：案内モーダルを表示
-          showLocationModal(); // モーダルを自作
-        }
-      };
+      window.onload = async function handleLocationFlow() {
+  const isPermissionGranted = await checkGeolocationPermission();
+  if (isPermissionGranted) {
+    sortByDistance();
+  } else {
+    showLocationModal();
+  }
+};
 
       // 🔍 ユーザーの位置情報許可状況を調べる関数
       async function checkGeolocationPermission() {
@@ -533,75 +581,100 @@ function disableButton(form) {
             console.log(userLon);
           },
           (error) => {
-            console.error("位置情報の取得に失敗しました:", error);
-          }
+  console.error("位置情報の取得に失敗:", error);
+  if (error.code === error.PERMISSION_DENIED) {
+    showModal2(); // 権限未許可
+  } else if (error.code === error.POSITION_UNAVAILABLE) {
+    alert("位置情報を取得できませんでした。電波状況をご確認ください。");
+  } else if (error.code === error.TIMEOUT) {
+    alert("位置情報取得がタイムアウトしました。再度お試しください。");
+  }
+}
         );
       }
 
       // 📌 モーダル内で「OK」ボタンを押したらポップアップへ進む
       function proceedToRequestLocation() {
-        document.getElementById("modal").classList.remove("open");
+        document.getElementById("modal1").classList.remove("open");
         sortByDistance(); // → ここで geolocation.getCurrentPosition() が走る
       }
 
       document
-        .getElementById("modal__btn")
+        .getElementById("modal1__btn")
         .addEventListener("click", proceedToRequestLocation);
 
       function showLocationModal() {
-        const modal = document.getElementById("modal");
+        const modal = document.getElementById("modal1");
         modal.classList.add("open");
       }
     </script>
 
-<!--     <style>
-      div.modal {
-        background-color: pink;
-        width: 100%;
+    <style>
+      div.modal1 {
+        background-color: rgb(0, 255, 255);
+        width: 70%;
+        height: 100vh;
 
         position: fixed;
-        top: 50%;
+        top: 0;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
+
         z-index: 100;
 
         display: none;
       }
 
-      div.open {
+      div.modal1.open {
         display: block;
       }
 
-      .modal__txt {
+      .modal1__txt {
         text-align: center;
       }
 
-      button.modal__btn {
+      button.modal1__btn {
         font-size: 200%;
         display: block;
         margin: 0 auto;
       }
-    </style> -->
-      
-      <script>
-      let userLat = null;
-      let userLon = null;
 
-      function sortByDistance() {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-             userLat = position.coords.latitude;
-             userLon = position.coords.longitude;
+      div.modal2 {
+        background-color: pink;
+        width: 70%;
+        height: 100vh;
 
-            console.log(userLat);
-            console.log(userLon);
-          },
-          (error) => {
-            console.error("位置情報の取得に失敗しました:", error);
-          }
-        );
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        z-index: 100;
+
+        display: none;
       }
-   
+
+      div.modal2.open {
+        display: block;
+      }
+
+      .modal2__txt {
+        text-align: center;
+      }
+
+      button.modal2__btn {
+        font-size: 200%;
+        display: block;
+        margin: 0 auto;
+      }
+
+      img.permission {
+        width: 300px;
+        display: block;
+        margin: 10px auto;
+      }
+    </style>
+   <script>
       // ✅ QRコードスキャン処理
       document.getElementById("scanQR").addEventListener("click", () => {
           
