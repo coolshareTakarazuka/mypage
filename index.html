@@ -26,8 +26,8 @@
   <body>
 
           
-<!--        <header> -->
-<!--              <div id="loading">
+       <header>
+             <div id="loading" class="loadEnd">
         <div class="loading-content">
             <img src="https://i.ibb.co/Wv8X3LVh/1.png">
           <h2>スタンプラリーの準備中です！！</h2>
@@ -147,7 +147,7 @@ function loopPercentage() {
   const elapsed = now - loopStart;
 
   if (elapsed >= duration) {
-    percentSpan.innerHTML = `間も無くスタート！！<br>※通信状況等により<br>数分かかる場合があります`; // 最終表示
+    percentSpan.innerHTML = `※通信状況等により<br>数分かかる場合があります`; // 最終表示
     return; // ループ終了
   }
 
@@ -162,7 +162,7 @@ loopPercentage();
 </script>
 
         
-  </header> -->
+  </header>
 
     <div class="modal" id="modal">
       <h3 class="modal__txt">
@@ -715,6 +715,9 @@ function disableButton(form) {
               form.appendChild(userLonField);
 
               document.getElementById("button3").click();
+
+             const load = document.getElementById("loading");
+             load.classList.remove('loadEnd');
               
             } else {
               alert("無効なQRコードです");
