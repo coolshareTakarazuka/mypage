@@ -27,7 +27,7 @@
 
           
        <header>
-             <div id="loading" class="loadEnd">
+             <div id="loading">
         <div class="loading-content">
             <img src="https://i.ibb.co/Wv8X3LVh/1.png">
           <h2>スタンプラリーの準備中です！！</h2>
@@ -163,7 +163,7 @@ loopPercentage();
 
         
   </header>
-
+<!-- 
     <div class="modal" id="modal">
       <h3 class="modal__txt">
         <p>クールシェアたからづか<br>ご参加の皆様へ</p>
@@ -224,7 +224,7 @@ loopPercentage();
       });
 
       
-    </script>
+    </script> -->
   
     <h1>
         <img
@@ -236,7 +236,7 @@ loopPercentage();
         クールシェアたからづか<br>2025<br>スタンプラリー
         
       </h1>
-      <h3><button id="scanQR" type="button"></button>
+      
 
       <ul class="scroll-list">
         <li class="scroll-message"></li>
@@ -325,69 +325,69 @@ window.onload = () => {
   checkLoading();
 }
 
-  liff.init({ liffId: "2007302862-3mj9r7W5" })
-    .then(async () => {
-      if (!liff.isLoggedIn()) {
-        liff.login(); // この時点で画面はリロードされるので以降の処理はされない
-        return;
-      }
+//   liff.init({ liffId: "2007302862-3mj9r7W5" })
+//     .then(async () => {
+//       if (!liff.isLoggedIn()) {
+//         liff.login(); // この時点で画面はリロードされるので以降の処理はされない
+//         return;
+//       }
 
-      try {
-        const profile = await liff.getProfile();
-        const userId = profile.userId;
+//       try {
+//         const profile = await liff.getProfile();
+//         const userId = profile.userId;
 
-        // ユーザーIDをフォームに追加
-        ["userForm1", "userForm2", "userForm3", "userForm4", "userForm5", "userForm6", "userForm7", "userForm8"].forEach(
-          (formId) => {
-            const form = document.getElementById(formId);
-            if (form) {
-              const userIdField = document.createElement("input");
-              userIdField.type = "hidden";
-              userIdField.name = "userId";
-              userIdField.value = userId;
-              form.appendChild(userIdField);
-            }
-          }
-        );
+//         // ユーザーIDをフォームに追加
+//         ["userForm1", "userForm2", "userForm3", "userForm4", "userForm5", "userForm6", "userForm7", "userForm8"].forEach(
+//           (formId) => {
+//             const form = document.getElementById(formId);
+//             if (form) {
+//               const userIdField = document.createElement("input");
+//               userIdField.type = "hidden";
+//               userIdField.name = "userId";
+//               userIdField.value = userId;
+//               form.appendChild(userIdField);
+//             }
+//           }
+//         );
 
-        // ボタンの表示更新
-        document.querySelector(".button1").textContent = "ユーザー登録";
-        document.querySelector(".button2").innerHTML = "スタンプラリー<br>カード";
-        document.querySelector(".button3").textContent = "※";
-        const test2 =  document.querySelector(".button4");
-       console.log(test2);
-        document.querySelector(".button4").textContent = "終了証作成";
+//         // ボタンの表示更新
+//         document.querySelector(".button1").textContent = "ユーザー登録";
+//         document.querySelector(".button2").innerHTML = "スタンプラリー<br>カード";
+//         document.querySelector(".button3").textContent = "※";
+//         const test2 =  document.querySelector(".button4");
+//        console.log(test2);
+//         document.querySelector(".button4").textContent = "終了証作成";
        
-       const test =  document.querySelector(".button6");
-       console.log(test);
-       document.querySelector(".button6").innerHTML = "背景画像を変更する";
-        document.querySelector(".button7").innerHTML = "参加名を変更する";
-        document.querySelector(".button8").innerHTML= "応募状況確認";
+//        const test =  document.querySelector(".button6");
+//        console.log(test);
+//        document.querySelector(".button6").innerHTML = "背景画像を変更する";
+//         document.querySelector(".button7").innerHTML = "参加名を変更する";
+//         document.querySelector(".button8").innerHTML= "応募状況確認";
 
-      } catch (err) {
-        console.log("プロフィール取得エラー: ", err);
-      } finally {
-        isLiffReady = true;
-        console.log(isLiffReady);
-        checkLoading();
-      }
-    })
-    .catch((err) => {
-      console.log("LIFF初期化エラー:", err);
-    });
-</script>
-
-
+//       } catch (err) {
+//         console.log("プロフィール取得エラー: ", err);
+//       } finally {
+//         isLiffReady = true;
+//         console.log(isLiffReady);
+//         checkLoading();
+//       }
+//     })
+//     .catch((err) => {
+//       console.log("LIFF初期化エラー:", err);
+//     });
+// </script>
 
 
-    <script>
-function disableButton(form) {
-  const button = form.querySelector('button[type="submit"]');
-  button.disabled = true;
-  button.textContent = '送信中...';
-  return true; // フォームの送信を続ける
-}
-</script>
+
+<!-- 
+//     <script>
+// function disableButton(form) {
+//   const button = form.querySelector('button[type="submit"]');
+//   button.disabled = true;
+//   button.textContent = '送信中...';
+//   return true; // フォームの送信を続ける
+// }
+// </script> -->
 
 
 <div class="tabs">
@@ -465,10 +465,10 @@ function disableButton(form) {
             
           </style>
           <br>
-          <h2 class="qrTitle">ただいまシステム改修中です🙇<br>ご利用いただけません</h2>
-          <!-- <h2 class="qrTitle" id="qrTitle"><i class="fa-solid fa-qrcode"></i> ２次元コード読み取って<br><i class="fa-solid fa-stamp"></i> スタンプを獲得しよう！</h2> -->
+         
+          <h2 class="qrTitle" id="qrTitle"><i class="fa-solid fa-qrcode"></i> ２次元コード読み取って<br><i class="fa-solid fa-stamp"></i> スタンプを獲得しよう！</h2>
         
-        <!-- <h3><button id="scanQR" type="button">２次元コードスキャン <br />ここをタップ！！</button></h3> -->
+        <h3><button id="scanQR" type="button">２次元コードスキャン <br />ここをタップ！！</button></h3>
     <h3>
       ※２次元コードはスポットごとに違います!<br />※スポットごとに読み取ってください!
     </h3>
@@ -495,7 +495,7 @@ function disableButton(form) {
           <img class="permission" src="./permision.png" />
         </p>
       </h4>
-      <button id="modal1__btn" class="modal1__btn">次に進む</button>
+      <button id="modal1__btn" class="modal1__btn">次に進む</button><br><br>
     </div>
 
     <div class="modal2" id="modal2">
@@ -934,7 +934,7 @@ method="post"
        
           <form onsubmit="disableButton(this)"
               id="userForm2"
-              action="https://script.google.com/macros/s/AKfycbwrtCZWyw50R5Fwfaheua0-ub74B1_UZ2XnP45FQdowoEiInIwrFBZ_0TVBqXkc6ksmlA/exec"
+              action="https://script.google.com/macros/s/AKfycbxHjK_5kvvxkJR47wt4UwVdlXOkngRGGrw7gc6PZtlbPdZk1xzdE5M1Tj_rsHSZWXEa0A/exec"
           
               method="post"
               >
