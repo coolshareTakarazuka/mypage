@@ -26,115 +26,115 @@
   <body>
 
           
-       <header>
-             <div id="loading">
-        <div class="loading-content">
-            <img src="https://i.ibb.co/Wv8X3LVh/1.png">
-          <h2>スタンプラリーの準備中です！！</h2>
-          <h2>loading・・・</h2>
-          <div class="progress-wrapper">
-            <div class="progress-bar"></div>
-            <div class="progress-text"><span class="percent">0%</span></div>
-          </div>
-        </div>
-    </div>
-      <script>
-        window.addEventListener('load',function(){
-            const element = document.querySelector('#loading')
-            element.classList.add('loadEnd');
-        });
-    </script>
-    <style>
-        #loading{
-            transition: all 1s;
-            background-color: #ffffff;
-            position:fixed;
-            z-index: 999;
-            inset: 0;
-            display: grid;
-            place-items:center;            
-        }
+    <header>
+      <div id="loading">
+ <div class="loading-content">
+     <img src="https://i.ibb.co/Wv8X3LVh/1.png">
+   <h2>スタンプラリーの準備中です！！</h2>
+   <h2>loading・・・</h2>
+   <div class="progress-wrapper">
+     <div class="progress-bar"></div>
+     <div class="progress-text"><span class="percent">0%</span></div>
+   </div>
+ </div>
+</div>
+<script>
+ window.addEventListener('load',function(){
+     const element = document.querySelector('#loading')
+     element.classList.add('loadEnd');
+ });
+</script>
+<style>
+ #loading{
+     transition: all 1s;
+     background-color: #ffffff;
+     position:fixed;
+     z-index: 999;
+     inset: 0;
+     display: grid;
+     place-items:center;            
+ }
 
-        #loading img{
-            width: 40%;
-            animation: slide 4s linear infinite;
-            position: relative;
-        }
+ #loading img{
+     width: 40%;
+     animation: slide 4s linear infinite;
+     position: relative;
+ }
 
-        .loading-content{
-            width: 100vw;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+ .loading-content{
+     width: 100vw;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+ }
 
-        @keyframes slide {
-            0% {
-                transform: translateX(-100%);
-            }
-            100%{
-                transform: translateX(200%);
-            }
-        }
+ @keyframes slide {
+     0% {
+         transform: translateX(-100%);
+     }
+     100%{
+         transform: translateX(200%);
+     }
+ }
 
-        #loading h2 {
-            animation:fadeIn 5s linear infinite;
-            position:relative;
-            
-        }
-        
-        @keyframes fadeIn{
-            0% {opacity: 0}
-            50% {opacity : 1}
-            100% {opacity: 0}
+ #loading h2 {
+     animation:fadeIn 5s linear infinite;
+     position:relative;
+     
+ }
+ 
+ @keyframes fadeIn{
+     0% {opacity: 0}
+     50% {opacity : 1}
+     100% {opacity: 0}
 
-        } 
+ } 
 
 
-     .loadEnd{
-          opacity: 0;
-          visibility: hidden;
-          }
-    
-
+.loadEnd{
+   opacity: 0;
+   visibility: hidden;
+   }
 
 
 
-    </style>
 
-  
+
+</style>
+
+
 
 <style>
-  .progress-wrapper {
-  width: 100vw; /* 画面いっぱい */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 30px;
-  padding: 0 20px; /* スマホで左右ギリギリ防止（必要に応じて） */
-  box-sizing: border-box;
+.progress-wrapper {
+width: 100vw; /* 画面いっぱい */
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 30px;
+padding: 0 20px; /* スマホで左右ギリギリ防止（必要に応じて） */
+box-sizing: border-box;
 }
 
 .progress-bar {
-  background-color: skyblue;
-  height: 10px;
-  width: 100%; /* wrapperの幅に合わせてフルに伸びる */
-  animation: loadingBar 20s linear;
-  border-radius: 5px;
-  margin-bottom: 10px;
+background-color: skyblue;
+height: 10px;
+width: 100%; /* wrapperの幅に合わせてフルに伸びる */
+animation: loadingBar 20s linear;
+border-radius: 5px;
+margin-bottom: 10px;
 }
 
-  .progress-text {
-    font-size: 24px;
-    color: blue;
-   
-    font-weight: bold;
-  }
+.progress-text {
+font-size: 24px;
+color: blue;
 
-  @keyframes loadingBar {
-    0% { width: 0; }
-    100% { width: 100%; }
-  }
+font-weight: bold;
+}
+
+@keyframes loadingBar {
+0% { width: 0; }
+100% { width: 100%; }
+}
 </style>
 
 <script>
@@ -143,104 +143,167 @@ const loopStart = Date.now();
 const duration = 20000; // 20秒
 
 function loopPercentage() {
-  const now = Date.now();
-  const elapsed = now - loopStart;
+const now = Date.now();
+const elapsed = now - loopStart;
 
-  if (elapsed >= duration) {
-    percentSpan.innerHTML = `間も無くスタート！！<br>※通信状況等により<br>数分かかる場合があります`; // 最終表示
-    return; // ループ終了
-  }
+if (elapsed >= duration) {
+percentSpan.innerHTML = `※通信状況等により<br>数分かかる場合があります`; // 最終表示
+return; // ループ終了
+}
 
-  const progress = elapsed / duration;
-  const percentage = Math.floor(progress * 100);
-  percentSpan.textContent = `${percentage}%`;
+const progress = elapsed / duration;
+const percentage = Math.floor(progress * 100);
+percentSpan.textContent = `${percentage}%`;
 
-  requestAnimationFrame(loopPercentage);
+requestAnimationFrame(loopPercentage);
 }
 
 loopPercentage();
 </script>
 
-        
-  </header>
-  
-    <h1>
-        <img
-          src="https://i.ibb.co/Wv8X3LVh/1.png"
-          alt="IMG-5451"
-          width="100px"
-          height="100px"
-        />
-        クールシェアたからづか<br>2025<br>スタンプラリー
-        
-      </h1>
+ 
+</header>
 
-      <ul class="scroll-list">
-        <li class="scroll-message"></li>
-      </ul>
+<!--     <div class="modal" id="modal">
+<h3 class="modal__txt">
+ <p>クールシェアたからづか<br>ご参加の皆様へ</p>
+ <p>皆様クールシェアをお楽しみいただきありがとうございます。</p>
+   <p>システムにつきまして、ご不便をお掛けし申し訳ありません。</p>
+   <p>エラーの状況確認と改善のため、<br>デジタルスタンプラリーのシステムを休止させていただきます。<br>システムメンテナンスが長引いております<br>申し訳ございません。</p>
+   <p>なお、シール形式のスタンプラリーは引続きご利用頂けます。</p><br>
+   <p>クールシェアたからづか 事務局</p>
 
-      <a href="https://coolsharetakarazuka.github.io/openchat/" class="btn lineOp">LINEオープンチャット<br>詳細・参加はここをタップ！！</a><br><br>
-      
-      <style>
-        .scroll-list{
-          display: flex;
-          list-style: none;
-          padding-inline: 0;
-          margin-inline: 0;
-          gap: 0;
-          background-color: yellow;
-          overflow: hidden;
-        }
+ </h3>
 
-        .scroll-list li{
-          color: gray;
-          font-size: 2em;
-          font-weight: bold;
-          white-space: nowrap;
-          padding: 0 1em 0 0;
-          margin: 0;
-          transform: translateX(40%);
-          animation: marquee-left 30s linear infinite;
-        }
 
-        @keyframes marquee-left{
-       
-          100%{
-            transform: translateX(-100%);
-          }
-        }
+</div>
 
-        .lineOp{
-          background-color: #06C755 !important;
-          text-align: center !important;
-          font-size: 100% !important;
-        }
-      </style>
+<button class="closeBtn" id="closeBtn"></button>
+
+<style>
+div.modal{
+ display: block;
+ position: fixed;
+ margin:0;
+ z-index: 990;
+ background-color: pink;
+ height: 100vh;  
+ width:100%; 
+       }
+
+h3.modal__txt{
+ text-align: center;
+ padding: 10% 0;
+
+}
+
+button.closeBtn{
+ width:100%;
+ position: fixed;
+ z-index: 999;
+ bottom: 1%;
+font-size: 50%;
+}
+
+div.modal.close{
+ display:none;
+
+       }
+</style>
+
+<script>
+const closeBtn =  document.getElementById('closeBtn');
+const modal = document.querySelector('.modal');
+
+const pageClose = document.getElementById('pageClose');
+
+closeBtn.addEventListener('click' , function(){
+ 
+ modal.classList.toggle('close');
+
+});
+
+
+</script> -->
+
+<h1>
+ <img
+   src="https://i.ibb.co/Wv8X3LVh/1.png"
+   alt="IMG-5451"
+   width="100px"
+   height="100px"
+ />
+ クールシェアたからづか<br>2025<br>スタンプラリー
+ 
+</h1>
+
+
+<ul class="scroll-list">
+ <li class="scroll-message"></li>
+</ul>
+
+<!-- <a href="https://coolsharetakarazuka.github.io/openchat/" class="btn lineOp">LINEオープンチャット<br>詳細・参加はここをタップ！！</a><br><br> -->
+
+<style>
+ .scroll-list{
+   display: flex;
+   list-style: none;
+   padding-inline: 0;
+   margin-inline: 0;
+   gap: 0;
+   background-color: yellow;
+   overflow: hidden;
+ }
+
+ .scroll-list li{
+   color: gray;
+   font-size: 2em;
+   font-weight: bold;
+   white-space: nowrap;
+   padding: 0 1em 0 0;
+   margin: 0;
+   transform: translateX(40%);
+   animation: marquee-left 30s linear infinite;
+ }
+
+ @keyframes marquee-left{
+
+   100%{
+     transform: translateX(-100%);
+   }
+ }
+
+ .lineOp{
+   background-color: #06C755 !important;
+   text-align: center !important;
+   font-size: 100% !important;
+ }
+</style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 
 <script>
-  fetch("https://docs.google.com/spreadsheets/d/10qt47x8Ofmj4D6ts6c-8uNVbxsgddpiH9KGovX8fVjc/gviz/tq?tqx=out:csv")
-    .then((response) => response.text())
-    .then((csvText) => {
-      const parsedData = Papa.parse(csvText, { header: true });
-      const messageData = parsedData.data;
+fetch("https://docs.google.com/spreadsheets/d/10qt47x8Ofmj4D6ts6c-8uNVbxsgddpiH9KGovX8fVjc/gviz/tq?tqx=out:csv")
+.then((response) => response.text())
+.then((csvText) => {
+const parsedData = Papa.parse(csvText, { header: true });
+const messageData = parsedData.data;
 
-      // A2セルの値（spot2列の1行目の値）を取得
-      const message = messageData[0]?.message || "不明";
+// A2セルの値（spot2列の1行目の値）を取得
+const message = messageData[0]?.message || "不明";
 
-      // HTMLのpClass2の中身を置き換える
-      const ul = document.querySelector(".scroll-list");
-      ul.innerHTML = ""; // 一旦中身を消す
+// HTMLのpClass2の中身を置き換える
+const ul = document.querySelector(".scroll-list");
+ul.innerHTML = ""; // 一旦中身を消す
 
-      const li = document.createElement("li");
-      li.className = "scroll-message";
-      li.textContent = message;
-      ul.appendChild(li);
-    });
+const li = document.createElement("li");
+li.className = "scroll-message";
+li.textContent = message;
+ul.appendChild(li);
+});
 </script>
 
-    <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+<script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
 
 
 <script>
@@ -249,71 +312,70 @@ let isLiffReady = false;
 let isPageLoaded = false;
 
 function checkLoading(){
-  if(isLiffReady && isPageLoaded){
-    // ここでローディング終了
-    const loadingEl = document.querySelector('#loading');
-    if (loadingEl) loadingEl.classList.add('loadEnd');
-  }
+if(isLiffReady && isPageLoaded){
+// ここでローディング終了
+const loadingEl = document.querySelector('#loading');
+if (loadingEl) loadingEl.classList.add('loadEnd');
+}
 }
 
 window.onload = () => {
-  isPageLoaded = true;
-  console.log(isPageLoaded);
-  checkLoading();
+isPageLoaded = true;
+console.log(isPageLoaded);
+checkLoading();
 }
 
-  liff.init({ liffId: "2007302862-3mj9r7W5" })
-    .then(async () => {
-      if (!liff.isLoggedIn()) {
-        liff.login(); // この時点で画面はリロードされるので以降の処理はされない
-        return;
-      }
+liff.init({ liffId: "2007302862-3mj9r7W5" })
+.then(async () => {
+if (!liff.isLoggedIn()) {
+ liff.login(); // この時点で画面はリロードされるので以降の処理はされない
+ return;
+}
 
-      try {
-        const profile = await liff.getProfile();
-        const userId = profile.userId;
+try {
+ const profile = await liff.getProfile();
+ const userId = profile.userId;
 
-        // ユーザーIDをフォームに追加
-        ["userForm1", "userForm2", "userForm3", "userForm4", "userForm5", "userForm6", "userForm7", "userForm8"].forEach(
-          (formId) => {
-            const form = document.getElementById(formId);
-            if (form) {
-              const userIdField = document.createElement("input");
-              userIdField.type = "hidden";
-              userIdField.name = "userId";
-              userIdField.value = userId;
-              form.appendChild(userIdField);
-            }
-          }
-        );
+ // ユーザーIDをフォームに追加
+ ["userForm1", "userForm2", "userForm3", "userForm4", "userForm5", "userForm6", "userForm7", "userForm8","userForm9","userForm10"].forEach(
+   (formId) => {
+     const form = document.getElementById(formId);
+     if (form) {
+       const userIdField = document.createElement("input");
+       userIdField.type = "hidden";
+       userIdField.name = "userId";
+       userIdField.value = userId;
+       form.appendChild(userIdField);
+     }
+   }
+ );
 
-        // ボタンの表示更新
-        document.querySelector(".button1").textContent = "ユーザー登録";
-        document.querySelector(".button2").innerHTML = "スタンプラリー<br>カード";
-        document.querySelector(".button3").textContent = "※";
-        const test2 =  document.querySelector(".button4");
-       console.log(test2);
-        document.querySelector(".button4").textContent = "終了証作成";
-       
-       const test =  document.querySelector(".button6");
-       console.log(test);
-       document.querySelector(".button6").innerHTML = "背景画像を変更する";
-        document.querySelector(".button7").innerHTML = "参加名を変更する";
-        document.querySelector(".button8").innerHTML= "応募状況確認";
+ // ボタンの表示更新
+ document.querySelector(".button1").textContent = "ユーザー登録";
+ document.querySelector(".button2").innerHTML = "スタンプカードを見る";
+ document.querySelector(".button3").textContent = "※";
+ const test2 =  document.querySelector(".button4");
+console.log(test2);
+ document.querySelector(".button4").textContent = "終了証作成";
 
-      } catch (err) {
-        console.log("プロフィール取得エラー: ", err);
-      } finally {
-        isLiffReady = true;
-        console.log(isLiffReady);
-        checkLoading();
-      }
-    })
-    .catch((err) => {
-      console.log("LIFF初期化エラー:", err);
-    });
+const test =  document.querySelector(".button6");
+console.log(test);
+document.querySelector(".button6").innerHTML = "背景画像を変更する";
+ document.querySelector(".button7").innerHTML = "参加名を変更する";
+ document.querySelector(".button8").innerHTML= "応募状況確認";
+
+} catch (err) {
+ console.log("プロフィール取得エラー: ", err);
+} finally {
+ isLiffReady = true;
+ console.log(isLiffReady);
+ checkLoading();
+}
+})
+.catch((err) => {
+console.log("LIFF初期化エラー:", err);
+});
 </script>
-
 
 
 
