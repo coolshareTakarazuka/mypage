@@ -88,10 +88,10 @@
             50% {opacity : 1}
             100% {opacity: 0}
 
-        } 
+        } */
 
 
-     .loadEnd{
+/*      .loadEnd{
           opacity: 0;
           visibility: hidden;
           }
@@ -147,7 +147,7 @@ function loopPercentage() {
   const elapsed = now - loopStart;
 
   if (elapsed >= duration) {
-    percentSpan.innerHTML = `※通信状況等により<br>数分かかる場合があります`; // 最終表示
+    percentSpan.innerHTML = `間も無くスタート！！<br>※通信状況等により<br>数分かかる場合があります`; // 最終表示
     return; // ループ終了
   }
 
@@ -163,68 +163,6 @@ loopPercentage();
 
         
   </header>
-
-<!--     <div class="modal" id="modal">
-      <h3 class="modal__txt">
-        <p>クールシェアたからづか<br>ご参加の皆様へ</p>
-        <p>皆様クールシェアをお楽しみいただきありがとうございます。</p>
-          <p>システムにつきまして、ご不便をお掛けし申し訳ありません。</p>
-          <p>エラーの状況確認と改善のため、<br>デジタルスタンプラリーのシステムを休止させていただきます。<br>システムメンテナンスが長引いております<br>申し訳ございません。</p>
-          <p>なお、シール形式のスタンプラリーは引続きご利用頂けます。</p><br>
-          <p>クールシェアたからづか 事務局</p>
-      
-        </h3>
-
-      
-    </div>
-
-    <button class="closeBtn" id="closeBtn"></button>
-
-    <style>
-      div.modal{
-        display: block;
-        position: fixed;
-        margin:0;
-        z-index: 990;
-        background-color: pink;
-        height: 100vh;  
-        width:100%; 
-              }
-
-      h3.modal__txt{
-        text-align: center;
-        padding: 10% 0;
-  
-      }
-
-      button.closeBtn{
-        width:100%;
-        position: fixed;
-        z-index: 999;
-        bottom: 1%;
-       font-size: 50%;
-      }
-
-      div.modal.close{
-        display:none;
-
-              }
-    </style>
-
-    <script>
-      const closeBtn =  document.getElementById('closeBtn');
-      const modal = document.querySelector('.modal');
-
-      const pageClose = document.getElementById('pageClose');
-
-      closeBtn.addEventListener('click' , function(){
-        
-        modal.classList.toggle('close');
-      
-      });
-
-      
-    </script> -->
   
     <h1>
         <img
@@ -236,13 +174,12 @@ loopPercentage();
         クールシェアたからづか<br>2025<br>スタンプラリー
         
       </h1>
-      
 
       <ul class="scroll-list">
         <li class="scroll-message"></li>
       </ul>
 
-      <!-- <a href="https://coolsharetakarazuka.github.io/openchat/" class="btn lineOp">LINEオープンチャット<br>詳細・参加はここをタップ！！</a><br><br> -->
+      <a href="https://coolsharetakarazuka.github.io/openchat/" class="btn lineOp">LINEオープンチャット<br>詳細・参加はここをタップ！！</a><br><br>
       
       <style>
         .scroll-list{
@@ -337,7 +274,7 @@ window.onload = () => {
         const userId = profile.userId;
 
         // ユーザーIDをフォームに追加
-        ["userForm1", "userForm2", "userForm3", "userForm4", "userForm5", "userForm6", "userForm7", "userForm8","userForm9","userForm10"].forEach(
+        ["userForm1", "userForm2", "userForm3", "userForm4", "userForm5", "userForm6", "userForm7", "userForm8"].forEach(
           (formId) => {
             const form = document.getElementById(formId);
             if (form) {
@@ -352,7 +289,7 @@ window.onload = () => {
 
         // ボタンの表示更新
         document.querySelector(".button1").textContent = "ユーザー登録";
-        document.querySelector(".button2").innerHTML = "スタンプカードを見る";
+        document.querySelector(".button2").innerHTML = "スタンプラリー<br>カード";
         document.querySelector(".button3").textContent = "※";
         const test2 =  document.querySelector(".button4");
        console.log(test2);
@@ -380,14 +317,14 @@ window.onload = () => {
 
 
 
- <script>
- function disableButton(form) {
-   const button = form.querySelector('button[type="submit"]');
-   button.disabled = true;
-   button.textContent = '送信中...';
-   return true; // フォームの送信を続ける
- } 
- </script>
+    <script>
+function disableButton(form) {
+  const button = form.querySelector('button[type="submit"]');
+  button.disabled = true;
+  button.textContent = '送信中...';
+  return true; // フォームの送信を続ける
+}
+</script>
 
 
 <div class="tabs">
@@ -465,232 +402,36 @@ window.onload = () => {
             
           </style>
           <br>
-         
           <h2 class="qrTitle" id="qrTitle"><i class="fa-solid fa-qrcode"></i> ２次元コード読み取って<br><i class="fa-solid fa-stamp"></i> スタンプを獲得しよう！</h2>
         
         <h3><button id="scanQR" type="button">２次元コードスキャン <br />ここをタップ！！</button></h3>
-    <!-- <h3>
+    <h3>
       ※２次元コードはスポットごとに違います!<br />※スポットごとに読み取ってください!
     </h3>
    
-    <p>スキャン結果: <span id="result"></span></p> -->
+    <p>スキャン結果: <span id="result"></span></p>
 
       
-          
-<!--     <div class="modal1 open" id="modal1">
-      <h3 class="modal1__txt">
-        【重要なお知らせ】<br />クールシェアたからづかご参加の方へ
-      </h3>
-      <h4 class="modal1__txt">
-        <p>
-          8月12日より、<br />スタンプラリーを<br />より安心してお楽しみいただくため<br />スタンプ獲得時に【📍位置情報の許可】<br />が必要になります
-        </p>
-        <p>
-          • 位置情報は スタンプ獲得時のみ 取得します<br />
-          • 利用目的は「スポットにいることの確認」だけです<br />
-          • その他の目的では一切利用しません
-        </p>
-        <p>
-          許可画面が表示されたら、<br />「許可する」を選択してください<br />※端末によって表示が<br />異なる可能性があります<br />
-          <img class="permission" src="./permision.png" />
-        </p>
-      </h4>
-      <button id="modal1__btn" class="modal1__btn">次に進む</button><br><br>
-    </div>
-
-    <div class="modal2" id="modal2">
-      <h3 class="modal2__txt">
-        位置情報の設定をご確認の上<br />再度お試しください
-      </h3>
-      <h4 class="modal2__txt">
-        <p>ご利用の端末の設定アプリで<br />位置情報の設定をしてください</p>
-        <p>【iphoneの方】</p>
-      </h4>
-
-      <h4>
-        <ol>
-          <li>
-            「設定」>「プライバシーとセキュリティ」>「位置情報サービス」の順にタップ
-          </li>
-          <li>「位置情報サービス」をオンにする</li>
-          <li>下にスクロールしてLINE アプリを探す</li>
-          <li>LINE アプリをタップし、オプションを選択</li>
-          <li>［この App の使⽤中のみ許可］、または［常 に］に設定</li>
-        </ol>
-      </h4>
-
-      <h3 class="modal2__txt">
-        <p>【Androidの方】</p>
-      </h3>
-
-      <h4>
-        <ol>
-          <li>[設定] > [位置情報]の順にタップ</li>
-          <li>[位置情報を使用]を「オン」にする</li>
-          <li>
-            再び[設定]画面に戻り、[アプリ] > [LINE] > [権限] >
-            [位置情報]の順にタップ。
-          </li>
-          <li>[アプリの使用中のみ許可]に設定</li>
-        </ol>
-      </h4>
-
-      <button class="modal2__btn"
-        onclick="location.href='https://liff.line.me/2007302862-3mj9r7W5'"
-      >
-        再度読み込む
-      </button>
-    </div>
-
-    <script>
-      let userLat = "";
-      let userLon = "";
-
-      window.onload = async function handleLocationFlow() {
-  const isPermissionGranted = await checkGeolocationPermission();
-  if (isPermissionGranted) {
-    sortByDistance();
-  } else {
-    showLocationModal();
-  }
-};
-
-      // 🔍 ユーザーの位置情報許可状況を調べる関数
-      async function checkGeolocationPermission() {
-        if (!navigator.permissions) return false; // 古いブラウザ対策
-
-        try {
-          const result = await navigator.permissions.query({
-            name: "geolocation",
-          });
-          return result.state === "granted";
-        } catch (e) {
-          return false;
-        }
-      }
-
-      function sortByDistance() {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            userLat = position.coords.latitude;
-            userLon = position.coords.longitude;
-
-            console.log(userLat);
-            console.log(userLon);
-          },
-          (error) => {
-  console.error("位置情報の取得に失敗:", error);
-  if (error.code === error.PERMISSION_DENIED) {
-    showModal2(); // 権限未許可
-  } else if (error.code === error.POSITION_UNAVAILABLE) {
-    alert("位置情報を取得できませんでした。電波状況をご確認ください。");
-  } else if (error.code === error.TIMEOUT) {
-    alert("位置情報取得がタイムアウトしました。再度お試しください。");
-  }
-}
-        );
-      }
-
-      // 📌 モーダル内で「OK」ボタンを押したらポップアップへ進む
-      function proceedToRequestLocation() {
-        document.getElementById("modal1").classList.remove("open");
-        sortByDistance(); // → ここで geolocation.getCurrentPosition() が走る
-      }
-
-      document
-        .getElementById("modal1__btn")
-        .addEventListener("click", proceedToRequestLocation);
-
-      function showLocationModal() {
-        const modal = document.getElementById("modal1");
-        modal.classList.add("open");
-      }
-    </script>
-
-    <style>
-      div.modal1 {
-        background-color: rgb(0, 255, 255);
-        width: 100%;
-        height: 100vh;
-
-        position: fixed;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-
-        z-index: 100;
-
-        display: none;
-       overflow-y: auto;
-      }
-
-      div.modal1.open {
-        display: block;
-      }
-
-      .modal1__txt {
-        text-align: center;
-      }
-
-      button.modal1__btn {
-        font-size: 200%;
-        display: block;
-        margin: 0 auto;
-      }
-
-      div.modal2 {
-        background-color: pink;
-        width: 100%;
-        height: 100vh;
-
-        position: fixed;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-
-        z-index: 100;
-
-        display: none;
-       overflow-y: auto;
-      }
-
-      div.modal2.open {
-        display: block;
-      }
-
-      .modal2__txt {
-        text-align: center;
-      }
-
-      button.modal2__btn {
-        font-size: 200%;
-        display: block;
-        margin: 0 auto;
-      }
-
-      img.permission {
-        width: 300px;
-        display: block;
-        margin: 10px auto;
-      }
-    </style> -->
    <script>
-      // ✅ QRコードスキャン処理
-      document.getElementById("scanQR").addEventListener("click", () => {
-          
+  
+
+        // ✅ ２次元コードスキャン処理
+        document.getElementById("scanQR").addEventListener("click", () => {
           if (!liff.isInClient()) {
             alert("LINEアプリ内で開いてください");
             return;
           }
-      
+
           liff.scanCodeV2().then((result) => {
             const qrCodeData = result.value;
             
-            document.getElementById("result").textContent = "QRコードの読み取りに成功しました";
+            
             
 
             const params = new URLSearchParams(qrCodeData.split('?')[1]);
-            const spotId = params.get('spot') || params.get('spotId');
+            const beforeSpotId = params.get('spot') || params.get('spotId');
+            const spotId = beforeSpotId.trim().replace(/[\n\r]/g, '');
+            
 
             if (spotId) {
               const form = document.getElementById("userForm3");
@@ -699,39 +440,26 @@ window.onload = () => {
               spotIdField.name = "spotId";
               spotIdField.value = spotId;
               form.appendChild(spotIdField);
-
-              // const userLatField = document.createElement("input");
-              // userLatField.type = "hidden";
-              // userLatField.name = "userLat";
-              // userLatField.value = userLat;
-              // form.appendChild(userLatField);
-
-              // const userLonField = document.createElement("input");
-              // userLonField.type = "hidden";
-              // userLonField.name = "userLon";
-              // userLonField.value = userLon;
-              // form.appendChild(userLonField);
-
-              document.getElementById("button3").click();
-
-             const load = document.getElementById("loading");
-             load.classList.remove('loadEnd');
+              
+              document.getElementById("result").textContent = "２次元コードの読み取りに成功しました。自動でページが切り替わります！";
+              document.getElementById("scanQR").textContent = "送信中";
+              document.getElementById("userForm3").submit(); // ボタンを押さずに送信
               
             } else {
-              alert("無効なQRコードです");
+              alert("無効な２次元コードです");
+              document.getElementById("result").textContent = "正しい２次元コードを読み取ってください";
             }
 
            
             
           }).catch((err) => {
-            console.error("QRコードスキャンエラー:", err);
+            console.error("２次元コードスキャンエラー:", err);
           });
         });
 
        
      
 </script>
-
 
       
 
@@ -740,127 +468,12 @@ window.onload = () => {
 
 <form 
 id="userForm3"
-action="https://script.google.com/macros/s/AKfycbwOCWHQR3vAUYPX8zjjeaFu_vUpZEVuHASk86LqhbK85LZYRTsTMhv7eTM_t4PO4pHPyw/exec"
+action="https://script.google.com/macros/s/AKfycbxxPCRN5U-e2P4ZU7xl3zN5zPXpZR3nvg-oFSLreIPLajM7JaEUZ-3w0ujYtJ57SMv54g/exec"
 method="post"
 >
 <button id="button3" class="button3 btn" type="submit" style="display: none;";>ログインされていません</button>
   <h4>２次元コードを読み込むと自動でページが切り替わります</h4>
 </form>
-
-<h2 class="qTitle">アンケートのご回答に<br>ご協力お願いします🙇<br>《 ここをタップ 》</h2>
-
-<div class="qContentClose">
-<form onsubmit="disableButton(this)"
-      id="userForm9"
-      action="https://script.google.com/macros/s/AKfycbwEUgAg-1Bs-sS31bIUlSYjuy_zjKTvsJSMKxaasXkTb5iMe4OGsBRXRN-3CW8Qb6Zo/exec"
-      method="post"
-    >
-    
-           <!-- ユーザーIDは動的に追加されます -->
-           
-        <h3>①イベント全体の満足度を教えてください</h3>
-        <label><input type="radio" name="q1" value="5" required>とても満足</label>
-        <label><input type="radio" name="q1" value="4">満足</label>
-        <label><input type="radio" name="q1" value="3">普通</label>
-        <label><input type="radio" name="q1" value="2">不満</label>
-        <label><input type="radio" name="q1" value="1">とても不満</label>
-
-        <h4>そのように感じられた理由があれば教えてください</h4>
-        <textarea name="q1reason" rows="5" cols="60"></textarea>
-
-        <h3>②スマートフォンを使った２次元コード読み取りは、スムーズにできましたか</h3>
-        <label><input type="radio" name="q2" value="はい" required>はい</label>
-        <label><input type="radio" name="q2" value="いいえ">いいえ</label>
-        <h4>そのように感じられた理由があれば教えてください</h4>
-        <textarea name="q2reason" rows="5" cols="60"></textarea>
-
-        <!-- <h3>③スタンプラリーの内容やスポットの数についてどう感じましたか？</h3>
-        <label><input type="radio" name="q3" value="ちょうどよかった" required>ちょうどよかった</label>
-        <label><input type="radio" name="q3" value="多すぎた">多すぎた</label>
-        <label><input type="radio" name="q3" value="少なかった">少かった</label> -->
-
-        <h3>③お気に入りのスポットや印象に残った体験があれば教えてください</h3>
-        スポット名： <input type="text" name="q41"><br><br>
-        <textarea name="q42" rows="5" cols="60"></textarea>
-
-        <h3>④イベントを知ったきっかけを教えてください</h3>
-        <select name="q5" required>
-          <option>選択してください</option>
-          <option>昨年も参加した</option>
-          <option>ホームページを見て知った</option>
-          <option>チラシ、パンフレットを見て知った</option>
-          <option>スポットに行って知った</option>
-          <option>友人・知人に教えてもらった</option>
-          <option>その他</option>
-        </select><br><br>
-        <h4>その他を選んだ場合</h4>
-        <textarea name="q5reason" rows="5" cols="60"></textarea>
-
-        
-
-
-        <h3>⑤今後のイベントで改善してほしい点やご意見・ご感想があれば教えてください</h3>
-        <textarea name="q6" rows="5" cols="60"></textarea><br>
-
-    
-
-        
-        <button class="button1" class="btn" type="submit">アンケート送信</button>
-
-    </form>
-
-</div>
-
-<script>
-    const qTitle = document.querySelector('.qTitle');
-    const qContent = document.querySelector('.qContentClose');
-
-    qTitle.onclick = function(){
-        qContent.classList.toggle('qContentClose')
-    }
-</script>
-
-<style>
-    h2.qTitle{
-        background-color: #72d2f8;
-        border: double;
-        border-width: 5px;
-        padding: 10px;
-        text-align: center;
-        cursor: pointer;
-    }
-
-    div.qContentClose{
-        display: none;
-    }
-</style>
-
-<details class="accordion-001">
-    <summary class="final">      
-          <h2 class="title final">終了証<br>記念にゲット！！</h2></summary>
-          <h3><i class="fa fa-angle-double-right"></i> イベント終了時ゲットしよう！！</h3>
-          
-        <form onsubmit="disableButton(this)"
-          id="userForm10"
-          action="https://script.google.com/macros/s/AKfycbyHZj8Z2A78ISNykEYPLabpQIqTncU8-ozcb3qGWkkriMYgVfr2qN0g31NmS8VJNCkZ-A/exec"
-          method="post"
-          >
-        <!-- ユーザーIDは動的に追加されます -->
-        <button class="button4 btn" type="submit">ログインされていません</button>
-        </form>
-        </details>
-
-        <style>
-            summary.final{
-                border: double 5px black !important;
-            }
-
-            h2.final{
-                color:black;
-            }
-        </style>
-
-
      <div class="slider-group">
         
         <div class="slider-card">②《２次元コードをスキャン》をタップ
@@ -902,7 +515,6 @@ method="post"
       object-fit: cover;
     }
      </style>
-
 
 
 <!--
@@ -1050,12 +662,10 @@ method="post"
        
           <form onsubmit="disableButton(this)"
               id="userForm2"
-              action="https://script.google.com/macros/s/AKfycbzxkYIcLi-0H3_xGeMx6CSVCPfzdNwNPkZiLyOHA7t38f8Ndiqp-U-qhd_0WxvpJScHwQ/exec"
+              action="https://script.google.com/macros/s/AKfycbwrtCZWyw50R5Fwfaheua0-ub74B1_UZ2XnP45FQdowoEiInIwrFBZ_0TVBqXkc6ksmlA/exec"
           
               method="post"
               >
-
-           <h3><i class="fa fa-angle-double-right"></i> 修復完了しました！！</h3>
            <!-- ユーザーIDは動的に追加されます -->
            <button class="button2 btn" type="submit">ログインされていません</button>
           </form><br>
@@ -1085,9 +695,9 @@ method="post"
 
     <div class="radio-group">
   <div class="radio-area">
-      <input type="radio" name="backImg" value="19">
-      <h4>9月限定！！</h4>
-      <img class="backImg" src="./1-9-0.png" class="radio">
+      <input type="radio" name="backImg" value="18">
+      <h4>8月限定！！</h4>
+      <img class="backImg" src="./1-8-0.png" class="radio">
   
   </div>
 
@@ -1213,12 +823,12 @@ method="post"
 
 <details class="accordion-001">
   <summary>      
-        <h2 class="title">④終了証<br>記念にゲット！！</h2></summary>
+        <h2 class="title">④終了証</h2></summary>
         <h3><i class="fa fa-angle-double-right"></i> イベント終了時ゲットしよう！！</h3>
         
       <form onsubmit="disableButton(this)"
         id="userForm4"
-        action="https://script.google.com/macros/s/AKfycbyHZj8Z2A78ISNykEYPLabpQIqTncU8-ozcb3qGWkkriMYgVfr2qN0g31NmS8VJNCkZ-A/exec"
+        action="https://script.google.com/macros/s/AKfycbxsItaBjJgCqPf4kTH8_8gKWsjV6aGCjj1K6uPFQV60PGNYt6IXJYJDhIDn4KIHSnrp5Q/exec"
         method="post"
         >
       <!-- ユーザーIDは動的に追加されます -->
@@ -1325,9 +935,9 @@ method="post"
 
                                <div class="radio-group">
   <div class="radio-area">
-      <input type="radio" name="backImg" value="19" required>
-      <h4>9月限定！！</h4>
-      <img class="backImg" src="./1-9-0.png" class="radio">
+      <input type="radio" name="backImg" value="18" required>
+      <h4>8月限定！！</h4>
+      <img class="backImg" src="./1-8-0.png" class="radio">
   
   </div>
 
