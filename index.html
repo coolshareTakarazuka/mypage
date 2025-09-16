@@ -536,6 +536,120 @@ method="post"
 <button id="button3" class="button3 btn" type="submit" style="display: none;";>ログインされていません</button>
   <h4>２次元コードを読み込むと自動でページが切り替わります</h4>
 </form>
+
+      <h2 class="qTitle">アンケートのご回答に<br>ご協力お願いします🙇<br>《 ここをタップ 》</h2>
+
+<div class="qContentClose">
+<form onsubmit="disableButton(this)"
+      id="userForm9"
+      action="https://script.google.com/macros/s/AKfycbwEUgAg-1Bs-sS31bIUlSYjuy_zjKTvsJSMKxaasXkTb5iMe4OGsBRXRN-3CW8Qb6Zo/exec"
+      method="post"
+    >
+    
+           <!-- ユーザーIDは動的に追加されます -->
+           
+        <h3>①イベント全体の満足度を教えてください</h3>
+        <label><input type="radio" name="q1" value="5" required>とても満足</label>
+        <label><input type="radio" name="q1" value="4">満足</label>
+        <label><input type="radio" name="q1" value="3">普通</label>
+        <label><input type="radio" name="q1" value="2">不満</label>
+        <label><input type="radio" name="q1" value="1">とても不満</label>
+
+        <h4>そのように感じられた理由があれば教えてください</h4>
+        <textarea name="q1reason" rows="5" cols="60"></textarea>
+
+        <h3>②スマートフォンを使った２次元コード読み取りは、スムーズにできましたか</h3>
+        <label><input type="radio" name="q2" value="はい" required>はい</label>
+        <label><input type="radio" name="q2" value="いいえ">いいえ</label>
+        <h4>そのように感じられた理由があれば教えてください</h4>
+        <textarea name="q2reason" rows="5" cols="60"></textarea>
+
+        <!-- <h3>③スタンプラリーの内容やスポットの数についてどう感じましたか？</h3>
+        <label><input type="radio" name="q3" value="ちょうどよかった" required>ちょうどよかった</label>
+        <label><input type="radio" name="q3" value="多すぎた">多すぎた</label>
+        <label><input type="radio" name="q3" value="少なかった">少かった</label> -->
+
+        <h3>③お気に入りのスポットや印象に残った体験があれば教えてください</h3>
+        スポット名： <input type="text" name="q41"><br><br>
+        <textarea name="q42" rows="5" cols="60"></textarea>
+
+        <h3>④イベントを知ったきっかけを教えてください</h3>
+        <select name="q5" required>
+          <option>選択してください</option>
+          <option>昨年も参加した</option>
+          <option>ホームページを見て知った</option>
+          <option>チラシ、パンフレットを見て知った</option>
+          <option>スポットに行って知った</option>
+          <option>友人・知人に教えてもらった</option>
+          <option>その他</option>
+        </select><br><br>
+        <h4>その他を選んだ場合</h4>
+        <textarea name="q5reason" rows="5" cols="60"></textarea>
+
+        
+
+
+        <h3>⑤今後のイベントで改善してほしい点やご意見・ご感想があれば教えてください</h3>
+        <textarea name="q6" rows="5" cols="60"></textarea><br>
+
+    
+
+        
+        <button class="button1" class="btn" type="submit">アンケート送信</button>
+
+    </form>
+
+</div>
+
+<script>
+    const qTitle = document.querySelector('.qTitle');
+    const qContent = document.querySelector('.qContentClose');
+
+    qTitle.onclick = function(){
+        qContent.classList.toggle('qContentClose')
+    }
+</script>
+
+<style>
+    h2.qTitle{
+        background-color: #72d2f8;
+        border: double;
+        border-width: 5px;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    div.qContentClose{
+        display: none;
+    }
+</style>
+
+<details class="accordion-001">
+    <summary class="final">      
+          <h2 class="title final">終了証<br>記念にゲット！！</h2></summary>
+          <h3><i class="fa fa-angle-double-right"></i> イベント終了時ゲットしよう！！</h3>
+          
+        <form onsubmit="disableButton(this)"
+          id="userForm10"
+          action="https://script.google.com/macros/s/AKfycbyHZj8Z2A78ISNykEYPLabpQIqTncU8-ozcb3qGWkkriMYgVfr2qN0g31NmS8VJNCkZ-A/exec"
+          method="post"
+          >
+        <!-- ユーザーIDは動的に追加されます -->
+        <button class="button4 btn" type="submit">ログインされていません</button>
+        </form>
+        </details>
+
+        <style>
+            summary.final{
+                border: double 5px black !important;
+            }
+
+            h2.final{
+                color:black;
+            }
+        </style>
+      
      <div class="slider-group">
         
         <div class="slider-card">②《２次元コードをスキャン》をタップ
