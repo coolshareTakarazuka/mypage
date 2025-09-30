@@ -30,7 +30,7 @@
       <div id="loading">
  <div class="loading-content">
      <img src="https://i.ibb.co/Wv8X3LVh/1.png">
-   <h2>スタンプラリーの準備中です！！</h2>
+   <h2>ご参加ありがとうございました！！</h2>
    <h2>loading・・・</h2>
    <div class="progress-wrapper">
      <div class="progress-bar"></div>
@@ -337,7 +337,7 @@ try {
  const userId = profile.userId;
 
  // ユーザーIDをフォームに追加
- ["userForm1", "userForm2", "userForm3", "userForm4", "userForm5", "userForm6", "userForm7", "userForm8","userForm9","userForm10"].forEach(
+ ["userForm1", "userForm2",  "userForm4", "userForm5", "userForm6", "userForm7", "userForm8","userForm9","userForm10"].forEach(
    (formId) => {
      const form = document.getElementById(formId);
      if (form) {
@@ -353,9 +353,8 @@ try {
  // ボタンの表示更新
  document.querySelector(".button1").textContent = "ユーザー登録";
  document.querySelector(".button2").innerHTML = "スタンプカードを見る";
- document.querySelector(".button3").textContent = "※";
+ 
  const test2 =  document.querySelector(".button4");
-console.log(test2);
  document.querySelector(".button4").textContent = "終了証作成";
 
 const test =  document.querySelector(".button6");
@@ -398,7 +397,7 @@ function disableButton(form) {
     name="tab_item"
     aria-label="ユーザー登録"
   />
-  <label class="tab_item blinking-link" for="registration"><i class="fa fa-user-plus i-top" aria-hidden="true"></i> <br>ユーザー登録</label>
+  <label class="tab_item" for="registration"><i class="fa fa-user-plus i-top"></i> <br>ユーザー登録</label>
 
 
   <input
@@ -415,7 +414,7 @@ function disableButton(form) {
 
   
 
-  <input id="ranking" type="radio" name="tab_item" aria-label="ランキング" value="https://coolsharetakarazuka.github.io/ranking/" onclick="location.href=this.value" />
+  <input id="ranking" type="radio" name="tab_item" aria-label="ランキング" />
   <label class="tab_item" for="ranking"><i class="fa-solid fa-trophy i-top"></i><br>ランキング</label>
 
 
@@ -424,7 +423,7 @@ function disableButton(form) {
     <div class="２次元コード">
       <p class="c-txtsp">
        
-          <h2 class="ballon"> <i class="fa fa-chevron-circle-up"></i>  初めての方 <i class="fa fa-user-plus" aria-hidden="true"></i><br>(ユーザー登録をしよう！！)</h2>
+          <!-- <h2 class="ballon"> <i class="fa fa-chevron-circle-up"></i>  初めての方 <i class="fa fa-user-plus" aria-hidden="true"></i><br>(ユーザー登録をしよう！！)</h2> -->
        
           
 
@@ -464,7 +463,7 @@ function disableButton(form) {
             
           </style>
           <br>
-          <h2 class="qrTitle" id="qrTitle"><i class="fa-solid fa-qrcode"></i> ２次元コード読み取って<br><i class="fa-solid fa-stamp"></i> スタンプを獲得しよう！</h2>
+          <!-- <h2 class="qrTitle" id="qrTitle"><i class="fa-solid fa-qrcode"></i> ２次元コード読み取って<br><i class="fa-solid fa-stamp"></i> スタンプを獲得しよう！</h2>
         
         <h3><button id="scanQR" type="button">２次元コードスキャン <br />ここをタップ！！</button></h3>
     <h3>
@@ -535,9 +534,221 @@ method="post"
 >
 <button id="button3" class="button3 btn" type="submit" style="display: none;";>ログインされていません</button>
   <h4>２次元コードを読み込むと自動でページが切り替わります</h4>
+</form> -->
+
+
+      
+     <!-- <div class="slider-group">
+        
+        <div class="slider-card">②《２次元コードをスキャン》をタップ
+          <img src="./3-3.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">③《今回のみ許可する》をタップ
+          <img src="./3-4.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">④スポットの２次元コードをスキャン
+          <img src="./3-5.png" class="slider-card-img" />
+        </div>
+        <div class="slider-card">⑤スタンプ獲得！！
+          <img src="./3-6.png" class="slider-card-img" />
+        </div>
+        <br />
+      </div>
+
+     <style>
+       .slider-group {
+      position: relative;
+      width: 100%;
+      min-height: 200px;
+      height: auto;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+
+    .slider-card {
+      flex: 0 0 auto;
+      max-width: 250px;
+      height: 100%;
+      margin-right: 20px;
+    }
+
+    .slider-card-img {
+      width: 100%;
+
+      object-fit: cover;
+    }
+     </style> -->
+
+
+
+
+<div class="finImgBox">
+<img class="finImg" id="finImg" alt="">
+</div>
+<h2 class="youtube">10月24日(金) 18:00〜<br> <i class="fa-brands fa-youtube youtube"></i> YouTubeLIVEにて<br>当選発表を行います！！</h2>
+
+<script>
+    const pics_src = ["fin/1.png","fin/2.png","fin/3.png"];
+    let num = -1;
+
+    function slideshow_timer(){
+        if(num === 2){
+            num = 0;
+        }else{
+            num ++;
+        }
+        const img = document.getElementById('finImg');
+        img.style.opacity = "0"; // 一瞬消す
+    setTimeout(() => {
+      img.src = pics_src[num];
+
+      img.classList.remove("slide");
+      void img.offsetWidth; 
+      img.classList.add("slide");
+
+      img.style.opacity = "1"; // 表示に戻す
+    }, 50); // ちょっと待ってから切り替え
+
+    }
+
+    setInterval(slideshow_timer,3000);
+</script>
+<style>
+    div.finImgBox{
+        text-align: center;
+    }
+    img.finImg{
+        width: 70%;
+        margin: 0 auto;
+        display: inline-block;
+    }
+    img.finImg.slide{
+        animation: slideIn 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+
+    @keyframes slideIn{
+        0%{
+            transform: translateX(180px);
+            opacity: 0;
+        }
+        100%{
+            transform: translateX(0);
+        }
+        100%{
+            opacity:1;
+        }
+    }
+</style>
+<h3>当選発表まであと<br><span id="day"></span>日 <span id="hour"></span>時間 <span id="min"></span>分 <!--<span id="second"></span>秒--></h3>
+    
+     <a href="https://www.youtube.com/live/5Upxrb2dxRc?feature=shared" class="youtube"><i class="fa-brands fa-youtube youtube2"></i> YouTube LIVE</a><br><br>
+        <iframe  src="https://www.youtube.com/embed/5Upxrb2dxRc?si=XKs7RRox8HJNTw6R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+
+        <script>
+
+          function showRestTime(){
+      
+          const now = new Date();
+          const eventDay = new Date(2025, 9, 24, 18, 0, 0);
+          const diff = eventDay.getTime() - now.getTime();
+      
+          const day = Math.floor(diff / 1000 / 60 / 60 / 24);
+          const hour = Math.floor(diff / 1000 / 60 / 60) % 24;
+          const min = Math.floor(diff / 1000 / 60 ) % 60 + 1;
+          const second = Math.floor(diff / 1000 ) % 60; 
+      
+          document.getElementById("day").textContent = day;
+          document.getElementById("hour").textContent = hour;
+          document.getElementById("min").textContent = String(min).padStart(2, '0');
+          //document.getElementById("second").textContent = String(second).padStart(2, '0');
+      
+          }
+      
+          setInterval(showRestTime, 1000);
+
+        </script>
+<h2 class="gift">景品応募状況・宛先確認</h2>
+
+     <h3>💡抽選会では、<br>応募番号と参加名(ニックネーム)を発表します</h3>
+     <h3>💡抽選会の前に、<br>ご自身の応募番号をこちらからご確認ください</h3>
+     <!-- <h3 class="tousen">💡景品当選の場合、<br>こちらから住所の確認をお願いいたします</h3> -->
+
+
+
+<form onsubmit="disableButton(this)"
+id="userForm8"
+action="https://script.google.com/macros/s/AKfycbxqPcHujHK-5Z0bHsAyH6ti58FmrYrBfkKrzM-X9pFfZ_2udDrnIFtkoUaOmSHyb6mOJg/exec"
+method="post"
+>
+
+     
+
+<button class="button8 btn" type="submit">確認する</button>
 </form>
 
-      <h2 class="qTitle">アンケートのご回答に<br>ご協力お願いします🙇<br>《 ここをタップ 》</h2>
+   
+        
+      
+
+<style>
+  h2.gift{
+        border-color: #66b2ff !important;
+        border-style: double;
+        border-width: 5px;
+      }
+  .thank{
+    text-align: center;
+    background-color: skyblue;
+    padding: 5px;
+  }
+
+  i.youtube {
+    color: #ff0000;
+  }
+
+
+  span{
+        font-family: Orbitron;
+        font-size: 40px;
+        
+        
+    }
+
+
+    li{
+       
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+
+    a.youtube{
+        margin : 0 ;
+        text-decoration: none;
+        color: #fff;
+        background-color: #FF0000;
+        padding: 10px;
+        font-size: 200%;
+      }
+
+      h2.youtube {
+    border-color: #FF0000;
+    border-width: 5px;
+    border-style: double;
+    text-align: center;
+    
+}
+
+
+
+      
+
+
+</style>
+      
+<h2 class="qTitle">アンケートのご回答に<br>ご協力お願いします🙇<br>《 ここをタップ 》</h2>
 
 <div class="qContentClose">
 <form onsubmit="disableButton(this)"
@@ -648,161 +859,7 @@ method="post"
             h2.final{
                 color:black;
             }
-        </style>
-      
-     <div class="slider-group">
-        
-        <div class="slider-card">②《２次元コードをスキャン》をタップ
-          <img src="./3-3.png" class="slider-card-img" />
-        </div>
-        <div class="slider-card">③《今回のみ許可する》をタップ
-          <img src="./3-4.png" class="slider-card-img" />
-        </div>
-        <div class="slider-card">④スポットの２次元コードをスキャン
-          <img src="./3-5.png" class="slider-card-img" />
-        </div>
-        <div class="slider-card">⑤スタンプ獲得！！
-          <img src="./3-6.png" class="slider-card-img" />
-        </div>
-        <br />
-      </div>
-
-     <style>
-       .slider-group {
-      position: relative;
-      width: 100%;
-      min-height: 200px;
-      height: auto;
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-    }
-
-    .slider-card {
-      flex: 0 0 auto;
-      max-width: 250px;
-      height: 100%;
-      margin-right: 20px;
-    }
-
-    .slider-card-img {
-      width: 100%;
-
-      object-fit: cover;
-    }
-     </style>
-
-
-<!--
-イベント終了後に表示する画面 ↓
-
-<h2 class="thank">クールシェアたからづか2025<br>デジタルスタンプラリーに<br>ご参加誠に<br>ありがとうございました 🙇</h2>
-<h2 class="youtube">10月24日(金) 18:00〜<br> <i class="fa-brands fa-youtube youtube"></i> YouTubeLIVEにて<br>当選発表を行います！！</h2>
-
-<h2 class="gift">景品応募状況・宛先確認</h2>
-
-     <h3>💡抽選会では、<br>応募番号と参加名(ニックネーム)を発表します</h3>
-     <h3>💡抽選会の前に、<br>ご自身の応募番号をこちらからご確認ください</h3>
-     <h3 class="tousen">💡景品当選の場合、<br>こちらから住所の確認をお願いいたします</h3>
-
-<form onsubmit="disableButton(this)"
-id="userForm8"
-action="https://script.google.com/macros/s/AKfycbxqPcHujHK-5Z0bHsAyH6ti58FmrYrBfkKrzM-X9pFfZ_2udDrnIFtkoUaOmSHyb6mOJg/exec"
-method="post"
->
-     
-
-<button class="button8 btn" type="submit">確認する</button>
-</form>
--->
-     <!--
-        <h3>当選発表まであと<br><span id="day"></span>日 <span id="hour"></span>時間 <span id="min"></span>分 <!--<span id="second"></span>秒--></h3>
-     <!--   
-     <a href="https://www.youtube.com/live/5Upxrb2dxRc?feature=shared" class="youtube"><i class="fa-brands fa-youtube youtube2"></i> YouTube LIVE</a><br><br>
-        <iframe  src="https://www.youtube.com/embed/5Upxrb2dxRc?si=XKs7RRox8HJNTw6R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-
--->
-<!--         <script>
-
-          function showRestTime(){
-      
-          const now = new Date();
-          const eventDay = new Date(2025, 9, 24, 18, 0, 0);
-          const diff = eventDay.getTime() - now.getTime();
-      
-          const day = Math.floor(diff / 1000 / 60 / 60 / 24);
-          const hour = Math.floor(diff / 1000 / 60 / 60) % 24;
-          const min = Math.floor(diff / 1000 / 60 ) % 60 + 1;
-          const second = Math.floor(diff / 1000 ) % 60; 
-      
-          document.getElementById("day").textContent = day;
-          document.getElementById("hour").textContent = hour;
-          document.getElementById("min").textContent = String(min).padStart(2, '0');
-          //document.getElementById("second").textContent = String(second).padStart(2, '0');
-      
-          }
-      
-          setInterval(showRestTime, 1000);
-
-        </script> -->
-      
-
-<style>
-  h2.gift{
-        border-color: #66b2ff !important;
-        border-style: double;
-        border-width: 5px;
-      }
-  .thank{
-    text-align: center;
-    background-color: skyblue;
-    padding: 5px;
-  }
-
-  i.youtube {
-    color: #ff0000;
-  }
-
-  /*
-  span{
-        font-family: Orbitron;
-        font-size: 40px;
-        
-        
-    }
-*/
-
-    li{
-       
-        font-family: sans-serif;
-        font-weight: bold;
-    }
-
-    a.youtube{
-        margin : 0 ;
-        text-decoration: none;
-        color: #fff;
-        background-color: #FF0000;
-        padding: 10px;
-        font-size: 200%;
-      }
-
-      h2.youtube {
-    border-color: #FF0000;
-    border-width: 5px;
-    border-style: double;
-    
-}
-
-
-
-      
-
-
-</style>
-      
-          
+        </style> 
 
 
         
@@ -1022,6 +1079,9 @@ method="post"
   <div class="tab_content" id="registration_content">
     <div class="tab_content_description">
       <p class="c-txtsp">
+        <div class="finImgBox">
+        <img class="finImg" src="./fin/1.png">
+        </div>
         <h2 class="qrTitle">ユーザー登録</h2>
                         <form onsubmit="disableButton(this)"
                               id="userForm1"
@@ -1201,7 +1261,11 @@ method="post"
     <div class="tab_content_description">
       <p class="c-txtsp">
       
+        <div class="finImgBox">
+            <img class="finImg" src="./fin/2.png">
+            </div>
 
+            <h2 class="youtube">ランキングは、YouTubeライブにて発表いたします！！</h2>
       </p>
     </div>
   </div>
@@ -1287,11 +1351,7 @@ method="post"
     color: #fff;
   }
 
-  label[for="registration"] {
-    border-color:  rgb(255, 196, 0);
-    background-color: rgb(255, 196, 0);
-    
-  }
+  
 
  .ballon{
   position:relative;
