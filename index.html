@@ -594,168 +594,113 @@ method="post"
 <button class="button8 btn" type="submit">確認する</button>
 </form>
 
-     <h3>💡抽選会では、<br>応募番号と参加名(ニックネーム)を発表します</h3>
-     <h3>💡抽選会の前に、<br>ご自身の応募番号をこちらからご確認ください</h3>
-   
+  <h2 class="youtube">抽選会をご覧いただきました皆様</h2> 
+  <h3>先日の抽選会は機材トラブル等により、抽選会が配信できず申し訳ありませんでした。後日下記にて改めて当選者の発表をさせていただきます。</h3>  
 
+  <ul>
+    <li><a href="https://line.me/ti/g2/uqcKXV8rOCsE8CNXQDX4kKeN1lF8PF1vmwQHlQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default）">LINEオープンチャット</a></li>
+    <li><a href="https://www.takarazuka-tsudoibamap.net/クールシェアスポット/）">たからづかつどい場マップ</a></li>
+  </ul>
 
+  <h2 class="youtube">🎉 当選者</h2>
+  <h3>後日こちらにも当選者の発表をいたします。</h3>
+  <!-- <h3>当選された方おめでとうございます！！</h3>
+  
 
-
-
-
-
-
-<div class="finImgBox">
-<img class="finImg" id="finImg" alt="">
-</div>
-<h2 class="youtube">10月24日(金) 18:00〜<br> <i class="fa-brands fa-youtube youtube"></i> YouTubeLIVEにて<br>当選発表を行います！！</h2>
-<h3>たくさんの景品の<br>ご応募ありがとうございました！！<br>※景品のご応募は終了しました。</h3>
-
-      
-
-<script>
-    const pics_src = ["fin/1.png","fin/2.png","fin/3.png"];
-    let num = -1;
-
-    function slideshow_timer(){
-        if(num === 2){
-            num = 0;
-        }else{
-            num ++;
-        }
-        const img = document.getElementById('finImg');
-        img.style.opacity = "0"; // 一瞬消す
-    setTimeout(() => {
-      img.src = pics_src[num];
-
-      img.classList.remove("slide");
-      void img.offsetWidth; 
-      img.classList.add("slide");
-
-      img.style.opacity = "1"; // 表示に戻す
-    }, 50); // ちょっと待ってから切り替え
-
-    }
-
-    setInterval(slideshow_timer,3000);
-</script>
-<style>
-    div.finImgBox{
-        text-align: center;
-    }
-    img.finImg{
-        width: 70%;
-        margin: 0 auto;
-        display: inline-block;
-    }
-    img.finImg.slide{
-        animation: slideIn 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    }
-
-    @keyframes slideIn{
-        0%{
-            transform: translateX(180px);
-            opacity: 0;
-        }
-        100%{
-            transform: translateX(0);
-        }
-        100%{
-            opacity:1;
-        }
-    }
-</style>
-<h3>当選発表まであと<br><span id="day"></span>日 <span id="hour"></span>時間 <span id="min"></span>分 <!--<span id="second"></span>秒--></h3>
+  <ol>
+    <li>スミレンオリジナルタオル</li>
+    <h4>ちから 様 ・ machi 様 ・ おかちゃん 様 ・ みや 様 <br>Yakopen  様 ・ さく 様 ・ カラメロ 様 ・ チーコ 様 <br>りおちゃん 様 ・ 心結 様 ・ のぶ 様 ・ 斎藤貴志子 様 <br>ござる２３ 様 ・ あさちゃん 様 ・ さきなた 様 <br> かっちゃん 様 ・ トントン 様 ・ 富士原豊子 様 <br>大野敬子 様 ・ ムーンくん 様</h4>
+  <hr>
     
-     <a href="https://www.youtube.com/live/5Upxrb2dxRc?feature=shared" class="youtube"><i class="fa-brands fa-youtube youtube2"></i> YouTube LIVE</a><br><br>
-        <iframe  src="https://www.youtube.com/embed/5Upxrb2dxRc?si=XKs7RRox8HJNTw6R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-
-
-        <script>
-
-          function showRestTime(){
-      
-          const now = new Date();
-          const eventDay = new Date(2025, 9, 24, 18, 0, 0);
-          const diff = eventDay.getTime() - now.getTime();
-      
-          const day = Math.floor(diff / 1000 / 60 / 60 / 24);
-          const hour = Math.floor(diff / 1000 / 60 / 60) % 24;
-          const min = Math.floor(diff / 1000 / 60 ) % 60 + 1;
-          const second = Math.floor(diff / 1000 ) % 60; 
-      
-          document.getElementById("day").textContent = day;
-          document.getElementById("hour").textContent = hour;
-          document.getElementById("min").textContent = String(min).padStart(2, '0');
-          //document.getElementById("second").textContent = String(second).padStart(2, '0');
-      
-          }
-      
-          setInterval(showRestTime, 1000);
-
-        </script>
-
-
-   
-        
-      
-
-<style>
-  h2.gift{
-        border-color: #66b2ff !important;
-        border-style: double;
-        border-width: 5px;
-      }
-  .thank{
-    text-align: center;
-    background-color: skyblue;
-    padding: 5px;
-  }
-
-  i.youtube {
-    color: #ff0000;
-  }
-
-
-  span{
-        font-family: Orbitron;
-        font-size: 40px;
-        
-        
-    }
-
-
-    li{
-       
-        font-family: sans-serif;
-        font-weight: bold;
-    }
-
-    a.youtube{
-        margin : 0 ;
-        text-decoration: none;
-        color: #fff;
-        background-color: #FF0000;
-        padding: 10px;
-        font-size: 200%;
-      }
-
-      h2.youtube {
-    border-color: #FF0000;
-    border-width: 5px;
-    border-style: double;
-    text-align: center;
+  <li>スミレンオリジナル文房具セット</li>
+    <h4>ちから 様 ・ めいめい 様 ・ Y子 様 ・ 足立　慶子 様<br> ミーコ 様 ・ くまちゃん 様 ・ 子供だいすき 様 <br> ちえちえちゃん 様 ・ Yakopen  様 ・ るん 様 <br> さく 様 ・ 小なから 様 ・ カラメロ 様 <br> マヒマヒ 様 ・ いくら 様 ・ あこちゃん 様 <br> かこちゃん 様 ・ ぴーさん 様 <br> toratoraエイト 様 ・ さなっぴ 様 ・ 伊藤さとみ 様 <br> たこやき 様 ・ みっちゃん 様 ・ ふくわらびもち 様 <br> そうちゃん 様 ・ マッキン 様 ・ ぶん 様 <br> せいピョン 様 ・ たくちゃん 様 ・ あおちゃん 様</h4>
+    <hr>
     
-}
+    <li>アピアさかせがわ商品券</li>
+    <h4>関戸光子 様 ・ 内村陽治郎 様 ・ ゆう (西宮市) 様</h4>
+    <hr>
+    
+    <li>ソリオ宝塚お買物券</li>
+    <h4>オレンジ 様 ・ カンチャン 様 ・ やまえい 様</h4>
+    <hr>
+    
+    <li>宝塚温泉 ホテル若水 日帰り温泉 ペア入浴券</li>
+    <h4>chuたん 様 ・ アイスクリームLOVER！ 様 <br> creap 様</h4>
+    <hr>
+    
+    <li>宝塚米</li>
+    <h4>まる 様 ・ とまと 様 ・ チーコ 様</h4>
+    <hr>
 
+    <li>ドリップパック4種詰め合わせ</li>
+    <h4>machi 様 ・ ぶ〜やん 様 ・ p O 様</h4>
+    <hr>
+    
+    <li>粉末青汁</li>
+    <h4>Shu君 様 ・ おかちゃん 様 ・ SAYU 様 <br> おすしまる 様 ・ カズやん 様 ・ ヨッシー 様 <br> ともも 様 ・ ゆづ 様 ・ ふくわらびもち 様 <br> おじき 様</h4>
+    <hr>
+    
+    <li>ほっこり湯オリジナルTシャツ</li>
+    <h4>ミーちゃん 様 </h4>
+    <hr>
+    
+    <li>ほっこり湯オリジナルタオル</li>
+    <h4>tococo 様 ・ kちゃん 様 ・ ひろみ 様 ・ ひいくん 様 <br> ねこにゃん 様 ・ 糸のこぎり 様 ・ カエルの兄弟 様 <br> かたつむり 様 ・ けー 様 ・ 消しごむ 様 ・ さとる 様 <br> しゃばだば 様 ・ チャンピオン 様 ・ 鶴ちゃん 様 <br> 東北LOVE 様 ・ ところ 様 ・ まきまき 様 <br> みくちゃん 様 ・ ユンゲラー 様 ・ リバティー 様</h4>
+    <hr>
+    
+    <li>佃煮詰め合わせ</li>
+    <h4>sacco 様 ・ まっちゃん！ 様 ・ こうちゃん (千種) 様 <br> のぶちゃん 様 ・ コタ 様</h4>
+    <hr>
+    
+    <li>麦茶</li>
+    <h4>JAMちか 様 ・ はまちゃん 様 ・ Hiro 様</h4>
+    <hr>
+    
+    <li>宝塚学検定公式テキスト</li>
+    <h4>れい子ばぁば 様 ・ きんちゃん 様 ・ こっちゃん (小林) 様</h4>
+    <hr>
+    
+    <li>宝塚学検定過去問題</li>
+    <h4>かゆ 様 ・ みーさん 様 ・ 斎藤恒雄 様 ・ きらら 様 ・ きんきん 様</h4>
+    <hr>
+    
+    <li>オリジナルプリントトートバック</li>
+    <h4>おっけいちゃん 様 ・ 子供だいすき 様 ・ チョコ 様 <br> しゃこがい 様 ・ たこやき 様 ・ どきんちゃん 様 <br> ぽぅぽ 様 ・ かずひと 様 ・ ゆめ 様 ・ 大野雅興 様</h4>
+    <hr>
+    
+    <li>足指専科</li>
+    <h4>Shu君 様 ・ tococo 様 ・ まみね 様 <br> かゆ 様 ・ ぶ〜やん 様 ・ JAMちか 様 <br> バンチャン 様 ・ p O 様 ・ おすしまる 様 <br> kちゃん 様 ・ ひろみ 様 ・ ヨッシー 様 <br> みーさん 様 ・ ゆづ 様 ・ かばこちゃん 様 <br> 斎藤貴志子 様 ・ 斎藤恒雄 様 ・ きんちゃん 様 <br> ひいくん 様 ・ おじき 様 ・ のぶちゃん 様 <br> あさちゃん 様 ・ Hiro 様 ・ きらら 様 <br> さきなた 様 ・ ミーちゃん 様 ・ 大野敬子 様 <br> 大野雅興 様 ・ ねこにゃん 様 ・ こっちゃん 様 <br>きんきん 様 ・ 加トちゃん 様 ・ しんちゃん 様 <br> みちよ 様 ・ キャリー 様 ・ こめかみ 様 ・ タコス 様</h4>
+    <hr>
+    
+</ol>
 
+<h2 class="youtube">🎉 ランキング</h2>
+<p>《特別賞》スミレンだるまをご郵送いたします</p>
+<img class="specialGift" src="スミレンだるま.png">
+<ol>
+    <li>人気のスポット</li>
+    <h4>第１位　宝塚市立山本山手子ども館　469人</h4>
+    <hr>
 
-      
+    <li>連続参加ランキング</li>
+    <h4>第１位　88日連続参加　Shu君 様</h4>
+    <hr>
 
+    <li>スタンプ獲得数ランキング</li>
+    <h4>第１位　617スタンプ　ぶ〜やん 様</h4>
+    <hr>
 
-</style>
-      
+    <li>理事長特別賞</li>
+    <h4>サマーピンク 様</h4>
+    <hr>
+
+    
+</ol> -->
+
+<br>
+<br>
+<br>
+<br>
 <h2 class="qTitle">アンケートのご回答に<br>ご協力お願いします🙇<br>《 ここをタップ 》</h2>
 
 <div class="qContentClose">
@@ -874,6 +819,80 @@ method="post"
       </p>
     </div>
   </div>
+
+ 
+
+
+
+
+
+        
+
+
+   
+        
+      
+
+<style>
+
+.specialGift{
+    width: 50%;
+    }
+  h2.gift{
+        border-color: #66b2ff !important;
+        border-style: double;
+        border-width: 5px;
+      }
+  .thank{
+    text-align: center;
+    background-color: skyblue;
+    padding: 5px;
+  }
+
+  i.youtube {
+    color: #ff0000;
+  }
+
+
+  span{
+        font-family: Orbitron;
+        font-size: 40px;
+        
+        
+    }
+
+
+    li{
+       
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+
+    a.youtube{
+        margin : 0 ;
+        text-decoration: none;
+        color: #fff;
+        background-color: #FF0000;
+        padding: 10px;
+        font-size: 200%;
+      }
+
+      h2.youtube {
+    border-color: #FF0000;
+    border-width: 5px;
+    border-style: double;
+    text-align: center;
+    
+}
+
+
+
+      
+
+
+</style>
+      
+
   <script>
     function changeRadio(id){
       document.getElementById(id).checked = true;
